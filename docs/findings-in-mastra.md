@@ -18,7 +18,7 @@ the upstream issue once it exists.
 
 ### 1. Two defaults disagree, silently: 4,000-character chunks and fastembed's 512-token window
 
-**Status:** reported as [#27235](https://github.com/mastra-ai/mastra/issues/27235) on 2026-10-16. **Repros:** `pnpm repros fastembed-truncation`, `pnpm repros
+**Status:** reported as [#27235](https://github.com/mastra-ai/mastra/issues/27235) on 2026-10-16; fixed by [#27315](https://github.com/mastra-ai/mastra/pull/27315) (merged, pending release). **Repros:** `pnpm repros fastembed-truncation`, `pnpm repros
 fastembed-truncation-hotpotqa`, `pnpm repros memory-fastembed-truncation`.
 
 Each piece behaves as designed. `@mastra/fastembed` initialises `bge-small-en-v1.5` with fastembed's default
@@ -60,7 +60,7 @@ without a `type`.
 
 ### 3. `runEvals` scores the message trajectory, not the trace, even with storage configured
 
-**Status:** reported as [#27237](https://github.com/mastra-ai/mastra/issues/27237) on 2026-10-16. **Repro:** `pnpm repros run-evals-trace-fallback`.
+**Status:** reported as [#27237](https://github.com/mastra-ai/mastra/issues/27237) on 2026-10-16; fixed by [#27271](https://github.com/mastra-ai/mastra/pull/27271) (merged, pending release). **Repro:** `pnpm repros run-evals-trace-fallback`.
 
 The trajectory-accuracy docs call trace-based extraction the preferred path when the target's Mastra instance has
 storage. `runEvals` reads the trace once, right after `agent.generate()`
@@ -73,7 +73,7 @@ falling back.
 
 ### 4. The redundant-call check never fires on trace-derived trajectories
 
-**Status:** reported as [#27239](https://github.com/mastra-ai/mastra/issues/27239) on 2026-10-16. **Repro:** `pnpm repros redundant-calls-on-trace`.
+**Status:** reported as [#27239](https://github.com/mastra-ai/mastra/issues/27239) on 2026-10-16; fix proposed in [#27316](https://github.com/mastra-ai/mastra/pull/27316). **Repro:** `pnpm repros redundant-calls-on-trace`.
 
 `checkTrajectoryEfficiency({ noRedundantCalls: true })` compares each step with its immediately preceding sibling
 (`packages/evals/src/scorers/utils.ts:1462-1489`, documented as "same tool + same args consecutively"). In a
@@ -82,9 +82,24 @@ steps, so two consecutive identical calls are never adjacent: the message trajec
 trajectory of the same run does not. Non-adjacent repeats are outside the documented scope and not part of this
 report. Suggested fix: compare each tool step with the previous tool step among its siblings.
 
+### 5. Forbidden sequences and retry limits miss violations on trace-derived trajectories
+
+**Status:** reported as [#27327](https://github.com/mastra-ai/mastra/issues/27327) on 2026-10-16. **Repro:** `pnpm repros trajectory-checks-on-trace`.
+
+The same trace shape as finding 4, in two neighbouring checks that `createTrajectoryScorerCode` combines with it.
+`checkTrajectoryBlacklist` matches `blacklistedSequences` against adjacent names in each sibling list
+(`packages/evals/src/scorers/utils.ts`, `@mastra/evals` 1.10.7), so the `processor_run` steps between two tool calls
+in a trace hide every forbidden sequence; a violation scores the whole trajectory 0, so this is the check users rely
+on as a hard gate. `analyzeToolFailures` collects tool calls from the top-level steps only, while a trace nests every
+tool call under `model_generation`, so `maxRetriesPerTool` sees no tool calls and finds no retries. Both checks
+catch the violation on the message trajectory of the same run. Since `runEvals` reads the trace once it is stored
+(#27237, fixed in #27271), both reach `runEvals` users by default. Suggested fix: skip non-tool steps when matching
+sequences, as #27316 does for redundant calls, and collect tool calls from the whole trajectory for the retry
+analysis.
+
 ## To be reported
 
-### 5. `type: 'trajectory'` scorers throw under trace scoring
+### 6. `type: 'trajectory'` scorers throw under trace scoring
 
 **Status:** not yet reported. **Repro:** `pnpm repros trajectory-scorer-trace-crash`.
 
@@ -96,7 +111,7 @@ one is not silent: the scorer run fails and the workflow logs the error. Studio'
 directly). Suggested fix: pass `extractTrajectoryFromTrace(trace.spans, targetSpan.spanId)` to trajectory scorers,
 as `runEvals` and live scoring already do.
 
-### 6. Trace scoring failures are invisible when the trace is not stored yet
+### 7. Trace scoring failures are invisible when the trace is not stored yet
 
 **Status:** not yet reported. **Repro:** `pnpm repros early-trace-scoring`.
 
@@ -108,7 +123,7 @@ failures such as `Trace not found for scoring` (`scoreTracesWorkflow.ts:194-197`
 writes no score and prints nothing; the same call after a flush writes the score. Mostly reachable from scripts and
 API callers. Suggested fix: also log at error level next to each `trackException`.
 
-### 7. `createVectorQueryTool` turns a vector store error into an empty, successful result
+### 8. `createVectorQueryTool` turns a vector store error into an empty, successful result
 
 **Status:** not yet reported. **Repro:** `pnpm repros vector-query-tool-swallows-store-errors`.
 
@@ -123,21 +138,6 @@ that reads tool calls all see an empty retrieval, which is exactly what the
 so a missing or NaN score reads as a real score of 0. A related support thread (#5405, a store name that did not
 resolve) shows users meeting the empty result. Suggested fix: rethrow store errors (or return a typed error
 result the agent can see), and keep a missing score missing.
-
-### 8. Forbidden sequences and retry limits miss violations on trace-derived trajectories
-
-**Status:** not yet reported. **Repro:** `pnpm repros trajectory-checks-on-trace`.
-
-The same trace shape as finding 4, in two neighbouring checks that `createTrajectoryScorerCode` combines with it.
-`checkTrajectoryBlacklist` matches `blacklistedSequences` against adjacent names in each sibling list
-(`packages/evals/src/scorers/utils.ts`, `@mastra/evals` 1.10.7), so the `processor_run` steps between two tool calls
-in a trace hide every forbidden sequence; a violation scores the whole trajectory 0, so this is the check users rely
-on as a hard gate. `analyzeToolFailures` collects tool calls from the top-level steps only, while a trace nests every
-tool call under `model_generation`, so `maxRetriesPerTool` sees no tool calls and finds no retries. Both checks
-catch the violation on the message trajectory of the same run. Since `runEvals` reads the trace once it is stored
-(#27237, fixed in #27271), both reach `runEvals` users by default. Suggested fix: skip non-tool steps when matching
-sequences, as #27316 does for redundant calls, and collect tool calls from the whole trajectory for the retry
-analysis.
 
 ## Checked, not bugs
 
