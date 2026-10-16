@@ -139,6 +139,20 @@ so a missing or NaN score reads as a real score of 0. A related support thread (
 resolve) shows users meeting the empty result. Suggested fix: rethrow store errors (or return a typed error
 result the agent can see), and keep a missing score missing.
 
+### 9. Trajectory accuracy scores a correct run 0 on its trace trajectory
+
+**Status:** not yet reported. **Repro:** `pnpm repros trajectory-accuracy-on-trace`.
+
+The checks behind trajectory scoring read the top-level steps of a trajectory, and a trace-derived trajectory nests
+every tool call under `model_generation`. `compareTrajectories` (which, by its own comment, does not recurse into
+children) finds none of the expected steps in any ordering, so `createTrajectoryScorerCode` with expected steps scores
+a run that makes exactly those calls 0 on its trace trajectory and 1 on its message trajectory; `maxSteps` counts one
+step. With #27271 merged, `runEvals` passes trace trajectories once storage is configured: on a build of `main`
+(`6889aa29`, 2026-10-16), the same run scored through `runEvals` went from 1 on `@mastra/core` 1.78.0 to 0 (checked
+by hand, not by the repro). Findings 4 and 5 are the same mismatch in other checks. Suggested fix: one normalisation
+that gives the flat checks a tool-level view of a trace trajectory (hoist the children of `model_generation`, drop
+`processor_run`), so every check behaves the same on both shapes; token budgets keep reading `model_generation`.
+
 ## Checked, not bugs
 
 These looked like silent failures and are not. They are listed so nobody has to check them again.
@@ -176,6 +190,7 @@ These looked like silent failures and are not. They are listed so nobody has to 
 | [`request-context-on-spans`](../repros/request-context-on-spans/repro.ts)                               | reproduces  | 4/21 stored spans carry the RequestContext; keys stored verbatim despite the default sensitive-data filter: customerEmail, tenantDatabaseUrl                                                                                                                                                                | darwin 25.6.0 arm64, Node v24.22.0, 2026-10-15 |
 | [`run-evals-trace-fallback`](../repros/run-evals-trace-fallback/repro.ts)                               | reproduces  | default exporter: runEvals used the message-fallback trajectory although the trace exists once flushed; with strategy 'realtime' it used the trace trajectory; LibSQLStore with the default exporter: message-fallback                                                                                      | darwin 25.6.0 arm64, Node v24.22.0, 2026-10-15 |
 | [`tool-output-validation-result`](../repros/tool-output-validation-result/repro.ts)                     | reproduces  | tool output failing outputSchema reached the model as a tool result; generate() returned text "The document scored well." and 1 console lines                                                                                                                                                               | darwin 25.6.0 arm64, Node v24.22.0, 2026-10-15 |
+| [`trajectory-accuracy-on-trace`](../repros/trajectory-accuracy-on-trace/repro.ts)                       | reproduces  | a run making exactly the expected searchCorpus, lookupSource calls: createTrajectoryScorerCode scores 1 on the message trajectory and 0 on the trace trajectory (accuracy 0 in every ordering); maxSteps 1 counts 2 steps on messages, 1 on the trace                                                       | darwin 25.6.0 arm64, Node v24.22.0, 2026-10-16 |
 | [`trajectory-checks-on-trace`](../repros/trajectory-checks-on-trace/repro.ts)                           | reproduces  | blacklistedSequences [searchCorpus, lookupSource]: score 0 on the message trajectory, 1 on the trace trajectory of the same run; a retry after a failed flakySearch call with maxRetriesPerTool 0: 1 retry found on the message trajectory, 0 on the trace trajectory                                       | darwin 25.6.0 arm64, Node v24.22.0, 2026-10-16 |
 | [`trajectory-scorer-trace-crash`](../repros/trajectory-scorer-trace-crash/repro.ts)                     | reproduces  | type 'trajectory' scorer under trace scoring: Scorer Run Failed: Cannot read properties of undefined (reading 'map'); the same scorer on extractTrajectoryFromTrace(spans) scores 1                                                                                                                         | darwin 25.6.0 arm64, Node v24.22.0, 2026-10-15 |
 | [`upsert-length-check`](../repros/upsert-length-check/repro.ts)                                         | reproduces  | an embedder returning 3 vectors for 4 inputs: embedMany threw AI_InvalidResponseDataError; the documented upsert (metadata from chunks) threw MASTRA_VECTOR_LIBSQL_UPSERT_FAILED caused by MASTRA_VECTOR_LIBSQL_UPSERT_METADATA_LENGTH_MISMATCH; only a positional zip (metadata from the vectors) resolved | darwin 25.6.0 arm64, Node v24.22.0, 2026-10-15 |

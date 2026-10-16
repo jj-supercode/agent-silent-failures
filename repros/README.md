@@ -21,22 +21,23 @@ Exit codes of each script:
 `--plain` work as for every command (see "For agents and CI" in the top-level README). It is not part of
 `pnpm check`: these scripts watch Mastra, not this repository's code.
 
-| Folder                                    | Finding                                                                      |
-| ----------------------------------------- | ---------------------------------------------------------------------------- |
-| `fastembed-truncation`                    | fastembed's 512-token window against default 4,000-character chunks (book)   |
-| `fastembed-truncation-hotpotqa`           | the same on this repository's HotpotQA documents, by document length         |
-| `memory-fastembed-truncation`             | the same through Memory semantic recall                                      |
-| `agent-scorer-loses-tool-calls`           | `type: 'agent'` scorers see no tool calls under trace scoring                |
-| `run-evals-trace-fallback`                | `runEvals` uses the message trajectory although storage is configured        |
-| `redundant-calls-on-trace`                | the redundant-call check misses consecutive repeats on trace trajectories    |
-| `trajectory-checks-on-trace`              | forbidden sequences and retry limits miss violations on trace trajectories   |
-| `trajectory-scorer-trace-crash`           | `type: 'trajectory'` scorers throw under trace scoring                       |
-| `early-trace-scoring`                     | scoring a trace before it is stored writes nothing and prints nothing        |
-| `vector-query-tool-swallows-store-errors` | `createVectorQueryTool` returns an empty result on a store error; NaN to 0   |
-| `upsert-length-check`                     | checked, not a bug: count mismatches fail loudly in `embedMany` and `upsert` |
-| `rag-ingestion-jsdoc`                     | checked, already known upstream: the `withRagIngestion` JSDoc example        |
-| `tool-output-validation-result`           | checked, by design: a failed `outputSchema` reaches the model as a result    |
-| `request-context-on-spans`                | checked, by design: the RequestContext snapshot stored on spans              |
+| Folder                                    | Finding                                                                                        |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `fastembed-truncation`                    | fastembed's 512-token window against default 4,000-character chunks (book)                     |
+| `fastembed-truncation-hotpotqa`           | the same on this repository's HotpotQA documents, by document length                           |
+| `memory-fastembed-truncation`             | the same through Memory semantic recall                                                        |
+| `agent-scorer-loses-tool-calls`           | `type: 'agent'` scorers see no tool calls under trace scoring                                  |
+| `run-evals-trace-fallback`                | `runEvals` uses the message trajectory although storage is configured                          |
+| `redundant-calls-on-trace`                | the redundant-call check misses consecutive repeats on trace trajectories                      |
+| `trajectory-checks-on-trace`              | forbidden sequences and retry limits miss violations on trace trajectories                     |
+| `trajectory-accuracy-on-trace`            | trajectory accuracy scores a correct run 0 on its trace trajectory; `maxSteps` counts one step |
+| `trajectory-scorer-trace-crash`           | `type: 'trajectory'` scorers throw under trace scoring                                         |
+| `early-trace-scoring`                     | scoring a trace before it is stored writes nothing and prints nothing                          |
+| `vector-query-tool-swallows-store-errors` | `createVectorQueryTool` returns an empty result on a store error; NaN to 0                     |
+| `upsert-length-check`                     | checked, not a bug: count mismatches fail loudly in `embedMany` and `upsert`                   |
+| `rag-ingestion-jsdoc`                     | checked, already known upstream: the `withRagIngestion` JSDoc example                          |
+| `tool-output-validation-result`           | checked, by design: a failed `outputSchema` reaches the model as a result                      |
+| `request-context-on-spans`                | checked, by design: the RequestContext snapshot stored on spans                                |
 
 For the "checked" rows, exit 0 means the recorded behaviour still holds, not that it is a bug.
 
