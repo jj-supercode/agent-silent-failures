@@ -573,7 +573,7 @@ Full tables: `results/offline/report.md` (scripted bed) and `results/replay/repo
 
 Building this turned up a few silent failures inside Mastra itself, each with an offline repro under `repros/` and
 a suggested fix, plus a few that looked like bugs and are not (for example, Mastra's documented ingestion pattern
-correctly refuses mismatched vector and metadata counts). The first five are reported upstream:
+correctly refuses mismatched vector and metadata counts). The first six are reported upstream:
 
 1. Default 4,000-character chunks and `@mastra/fastembed`'s 512-token window disagree, and `doEmbed` returns no
    warning (the headline above): each default is sound alone; the ask is a warning and documentation
@@ -584,6 +584,8 @@ correctly refuses mismatched vector and metadata counts). The first five are rep
 4. The redundant-call check never fires on trace-derived trajectories ([#27239](https://github.com/mastra-ai/mastra/issues/27239)).
 5. Forbidden tool sequences and retry limits miss violations on trace-derived trajectories
    ([#27327](https://github.com/mastra-ai/mastra/issues/27327)).
+6. Trajectory accuracy scores a correct run 0 on its trace trajectory, which `runEvals` passes once the #27237 fix ships
+   ([#27329](https://github.com/mastra-ai/mastra/issues/27329)).
 
 Details, source references, the findings not yet reported and the checked non-bugs: [docs/findings-in-mastra.md](docs/findings-in-mastra.md).
 

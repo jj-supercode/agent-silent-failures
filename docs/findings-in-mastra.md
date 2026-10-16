@@ -97,9 +97,23 @@ catch the violation on the message trajectory of the same run. Since `runEvals` 
 sequences, as #27316 does for redundant calls, and collect tool calls from the whole trajectory for the retry
 analysis.
 
+### 6. Trajectory accuracy scores a correct run 0 on its trace trajectory
+
+**Status:** reported as [#27329](https://github.com/mastra-ai/mastra/issues/27329) on 2026-10-16. **Repro:** `pnpm repros trajectory-accuracy-on-trace`.
+
+The checks behind trajectory scoring read the top-level steps of a trajectory, and a trace-derived trajectory nests
+every tool call under `model_generation`. `compareTrajectories` (which, by its own comment, does not recurse into
+children) finds none of the expected steps in any ordering, so `createTrajectoryScorerCode` with expected steps scores
+a run that makes exactly those calls 0 on its trace trajectory and 1 on its message trajectory; `maxSteps` counts one
+step. With #27271 merged, `runEvals` passes trace trajectories once storage is configured: on a build of `main`
+(`6889aa29`, 2026-10-16), the same run scored through `runEvals` went from 1 on `@mastra/core` 1.78.0 to 0 (checked
+by hand, not by the repro). Findings 4 and 5 are the same mismatch in other checks. Suggested fix: one normalisation
+that gives the flat checks a tool-level view of a trace trajectory (hoist the children of `model_generation`, drop
+`processor_run`), so every check behaves the same on both shapes; token budgets keep reading `model_generation`.
+
 ## To be reported
 
-### 6. `type: 'trajectory'` scorers throw under trace scoring
+### 7. `type: 'trajectory'` scorers throw under trace scoring
 
 **Status:** not yet reported. **Repro:** `pnpm repros trajectory-scorer-trace-crash`.
 
@@ -111,7 +125,7 @@ one is not silent: the scorer run fails and the workflow logs the error. Studio'
 directly). Suggested fix: pass `extractTrajectoryFromTrace(trace.spans, targetSpan.spanId)` to trajectory scorers,
 as `runEvals` and live scoring already do.
 
-### 7. Trace scoring failures are invisible when the trace is not stored yet
+### 8. Trace scoring failures are invisible when the trace is not stored yet
 
 **Status:** not yet reported. **Repro:** `pnpm repros early-trace-scoring`.
 
@@ -123,7 +137,7 @@ failures such as `Trace not found for scoring` (`scoreTracesWorkflow.ts:194-197`
 writes no score and prints nothing; the same call after a flush writes the score. Mostly reachable from scripts and
 API callers. Suggested fix: also log at error level next to each `trackException`.
 
-### 8. `createVectorQueryTool` turns a vector store error into an empty, successful result
+### 9. `createVectorQueryTool` turns a vector store error into an empty, successful result
 
 **Status:** not yet reported. **Repro:** `pnpm repros vector-query-tool-swallows-store-errors`.
 
@@ -138,20 +152,6 @@ that reads tool calls all see an empty retrieval, which is exactly what the
 so a missing or NaN score reads as a real score of 0. A related support thread (#5405, a store name that did not
 resolve) shows users meeting the empty result. Suggested fix: rethrow store errors (or return a typed error
 result the agent can see), and keep a missing score missing.
-
-### 9. Trajectory accuracy scores a correct run 0 on its trace trajectory
-
-**Status:** not yet reported. **Repro:** `pnpm repros trajectory-accuracy-on-trace`.
-
-The checks behind trajectory scoring read the top-level steps of a trajectory, and a trace-derived trajectory nests
-every tool call under `model_generation`. `compareTrajectories` (which, by its own comment, does not recurse into
-children) finds none of the expected steps in any ordering, so `createTrajectoryScorerCode` with expected steps scores
-a run that makes exactly those calls 0 on its trace trajectory and 1 on its message trajectory; `maxSteps` counts one
-step. With #27271 merged, `runEvals` passes trace trajectories once storage is configured: on a build of `main`
-(`6889aa29`, 2026-10-16), the same run scored through `runEvals` went from 1 on `@mastra/core` 1.78.0 to 0 (checked
-by hand, not by the repro). Findings 4 and 5 are the same mismatch in other checks. Suggested fix: one normalisation
-that gives the flat checks a tool-level view of a trace trajectory (hoist the children of `model_generation`, drop
-`processor_run`), so every check behaves the same on both shapes; token budgets keep reading `model_generation`.
 
 ## Checked, not bugs
 
