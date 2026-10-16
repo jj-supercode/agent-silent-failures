@@ -21,9 +21,6 @@ jobs:
         runs-on: ubuntu-24.04
         timeout-minutes: 45
         env:
-            # The secret exists only for the package's very first publish, if npm cannot attach a trusted publisher to
-            # a package that was never published; it is deleted right after, and every later release uses OIDC.
-            HAS_FIRST_PUBLISH_TOKEN: ${{ secrets.NPM_FIRST_PUBLISH_TOKEN != '' }}
             # A Release marked as a pre-release goes to the `next` dist-tag, so `npm install` never picks it up.
             DIST_TAG: ${{ github.event.release.prerelease && 'next' || 'latest' }}
         steps:
@@ -55,11 +52,4 @@ jobs:
             - run: pnpm build
 
             - name: Publish with trusted publishing (OIDC, provenance attached by npm)
-              if: env.HAS_FIRST_PUBLISH_TOKEN != 'true'
               run: npm publish --access public --tag "$DIST_TAG"
-
-            - name: First publish only, with a short-lived granular token
-              if: env.HAS_FIRST_PUBLISH_TOKEN == 'true'
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_FIRST_PUBLISH_TOKEN }}
-              run: npm publish --access public --provenance --tag "$DIST_TAG"
