@@ -11,14 +11,14 @@ Versions for every finding: `@mastra/core` 1.77.0, `@mastra/evals` 1.10.7, `@mas
 local. Source references are `path:line` in the `mastra-ai/mastra` repository at the release tag of the package
 named.
 
-Mastra moves fast, and every item here comes with a small, concrete fix. None of them has been reported yet; each
-section names its status and will link the upstream issue once it exists.
+Mastra moves fast, and every item here comes with a small, concrete fix. Each section names its status and links
+the upstream issue once it exists.
 
-## To be reported
+## Reported
 
 ### 1. Two defaults disagree, silently: 4,000-character chunks and fastembed's 512-token window
 
-**Status:** not yet reported. **Repros:** `pnpm repros fastembed-truncation`, `pnpm repros
+**Status:** reported as [#27235](https://github.com/mastra-ai/mastra/issues/27235) on 2026-10-16. **Repros:** `pnpm repros fastembed-truncation`, `pnpm repros
 fastembed-truncation-hotpotqa`, `pnpm repros memory-fastembed-truncation`.
 
 Each piece behaves as designed. `@mastra/fastembed` initialises `bge-small-en-v1.5` with fastembed's default
@@ -44,7 +44,7 @@ window.
 
 ### 2. Trace scoring gives `type: 'agent'` scorers no tool calls
 
-**Status:** not yet reported. **Repro:** `pnpm repros agent-scorer-loses-tool-calls`.
+**Status:** reported as [#27236](https://github.com/mastra-ai/mastra/issues/27236) on 2026-10-16. **Repro:** `pnpm repros agent-scorer-loses-tool-calls`.
 
 The custom-scorer docs recommend `type: 'agent'` for scorers that should work both live and on stored traces. On
 traces, `reconstructToolInvocations` collects only direct `tool_call` children of the root `agent_run`
@@ -60,7 +60,7 @@ without a `type`.
 
 ### 3. `runEvals` scores the message trajectory, not the trace, even with storage configured
 
-**Status:** not yet reported. **Repro:** `pnpm repros run-evals-trace-fallback`.
+**Status:** reported as [#27237](https://github.com/mastra-ai/mastra/issues/27237) on 2026-10-16. **Repro:** `pnpm repros run-evals-trace-fallback`.
 
 The trajectory-accuracy docs call trace-based extraction the preferred path when the target's Mastra instance has
 storage. `runEvals` reads the trace once, right after `agent.generate()`
@@ -73,7 +73,7 @@ falling back.
 
 ### 4. The redundant-call check never fires on trace-derived trajectories
 
-**Status:** not yet reported. **Repro:** `pnpm repros redundant-calls-on-trace`.
+**Status:** reported as [#27239](https://github.com/mastra-ai/mastra/issues/27239) on 2026-10-16. **Repro:** `pnpm repros redundant-calls-on-trace`.
 
 `checkTrajectoryEfficiency({ noRedundantCalls: true })` compares each step with its immediately preceding sibling
 (`packages/evals/src/scorers/utils.ts:1462-1489`, documented as "same tool + same args consecutively"). In a
@@ -82,7 +82,7 @@ steps, so two consecutive identical calls are never adjacent: the message trajec
 trajectory of the same run does not. Non-adjacent repeats are outside the documented scope and not part of this
 report. Suggested fix: compare each tool step with the previous tool step among its siblings.
 
-## Second batch
+## To be reported
 
 ### 5. `type: 'trajectory'` scorers throw under trace scoring
 
