@@ -1,6 +1,6 @@
 {
     "name": "agent-silent-failures",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "A measured, executable catalog of silent agent failures, shipped as code-only Mastra scorers.",
     "license": "MIT",
     "author": "Aleksi Heinonen",
