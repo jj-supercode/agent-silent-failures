@@ -1,0 +1,42 @@
+{
+    "reproductionId": "redundant-calls-on-trace",
+    "outcome": "reproduces",
+    "summary": "two consecutive identical searchCorpus calls: redundantCalls has 1 entry on the message trajectory, 0 on the trace trajectory of the same run",
+    "source": "scripted",
+    "platform": "darwin 25.6.0 arm64, Node v24.22.0",
+    "generatedOn": "2026-10-15",
+    "versions": {
+        "@mastra/core": "1.77.0",
+        "@mastra/evals": "1.10.7",
+        "@mastra/fastembed": "1.3.3",
+        "@mastra/libsql": "1.26.1",
+        "@mastra/memory": "1.37.1",
+        "@mastra/observability": "1.20.0",
+        "@mastra/rag": "2.6.7",
+        "ai": "7.0.140"
+    },
+    "evidence": {
+        "messageTrajectory": {
+            "outline": ["tool_call:searchCorpus", "tool_call:searchCorpus"],
+            "redundantCalls": [{ "name": "searchCorpus", "index": 1 }]
+        },
+        "traceTrajectory": {
+            "outline": [
+                "model_generation:llm: 'repeater-model'",
+                "  processor_run:llm request processor: provider-history-compat",
+                "  processor_run:llm request processor: unsupported-file-handler",
+                "  tool_call:searchCorpus",
+                "  processor_run:llm request processor: provider-history-compat",
+                "  processor_run:llm request processor: unsupported-file-handler",
+                "  tool_call:searchCorpus",
+                "  processor_run:llm request processor: provider-history-compat",
+                "  processor_run:llm request processor: unsupported-file-handler"
+            ],
+            "redundantCalls": []
+        },
+        "outOfDocumentedScope": {
+            "script": "searchCorpus, lookupSource, searchCorpus (identical args)",
+            "redundantCallsOnTrace": []
+        }
+    }
+}

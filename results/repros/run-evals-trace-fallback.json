@@ -1,0 +1,44 @@
+{
+    "reproductionId": "run-evals-trace-fallback",
+    "outcome": "reproduces",
+    "summary": "default exporter: runEvals used the message-fallback trajectory although the trace exists once flushed; with strategy 'realtime' it used the trace trajectory; LibSQLStore with the default exporter: message-fallback",
+    "source": "scripted",
+    "platform": "darwin 25.6.0 arm64, Node v24.22.0",
+    "generatedOn": "2026-10-15",
+    "versions": {
+        "@mastra/core": "1.77.0",
+        "@mastra/evals": "1.10.7",
+        "@mastra/fastembed": "1.3.3",
+        "@mastra/libsql": "1.26.1",
+        "@mastra/memory": "1.37.1",
+        "@mastra/observability": "1.20.0",
+        "@mastra/rag": "2.6.7",
+        "ai": "7.0.140"
+    },
+    "evidence": {
+        "defaultExporter": {
+            "storageName": "InMemoryStore",
+            "exporterConfig": {},
+            "extractionPath": "message-fallback",
+            "topLevelStepTypes": ["tool_call", "tool_call"],
+            "traceStoredWhenRunEvalsReturned": true,
+            "traceStoredAfterFlush": true
+        },
+        "realtimeExporter": {
+            "storageName": "InMemoryStore",
+            "exporterConfig": { "strategy": "realtime" },
+            "extractionPath": "trace",
+            "topLevelStepTypes": ["model_generation"],
+            "traceStoredWhenRunEvalsReturned": true,
+            "traceStoredAfterFlush": true
+        },
+        "libsqlDefaultExporter": {
+            "storageName": "LibSQLStore (file)",
+            "exporterConfig": {},
+            "extractionPath": "message-fallback",
+            "topLevelStepTypes": ["tool_call", "tool_call"],
+            "traceStoredWhenRunEvalsReturned": true,
+            "traceStoredAfterFlush": true
+        }
+    }
+}

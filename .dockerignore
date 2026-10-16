@@ -1,0 +1,16 @@
+node_modules
+.env*
+!.env.example
+.git
+.github
+*.db
+*.db-*
+.cache
+.mastra
+coverage
+results/live
+dist/
+fixtures/**/runs.jsonl.before-resume
+fixtures/**/runs.jsonl.rewriting
+.vitest
+.DS_Store

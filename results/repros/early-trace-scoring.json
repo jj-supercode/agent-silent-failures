@@ -1,0 +1,34 @@
+{
+    "reproductionId": "early-trace-scoring",
+    "outcome": "reproduces",
+    "summary": "scoring before the trace is stored resolves, writes 0 scores and prints 0 console lines; the same call after a flush writes 1",
+    "source": "scripted",
+    "platform": "darwin 25.6.0 arm64, Node v24.22.0",
+    "generatedOn": "2026-10-15",
+    "versions": {
+        "@mastra/core": "1.77.0",
+        "@mastra/evals": "1.10.7",
+        "@mastra/fastembed": "1.3.3",
+        "@mastra/libsql": "1.26.1",
+        "@mastra/memory": "1.37.1",
+        "@mastra/observability": "1.20.0",
+        "@mastra/rag": "2.6.7",
+        "ai": "7.0.140"
+    },
+    "evidence": {
+        "beforeFlush": {
+            "traceStoredBeforeScoring": false,
+            "settled": "resolved",
+            "consoleLines": [],
+            "persistedScores": 0
+        },
+        "afterFlush": { "settled": "resolved", "consoleLines": [], "persistedScores": 1 },
+        "scorerThatThrows": {
+            "settled": "resolved",
+            "consoleLines": [
+                "error: [WORKFLOW] Error executing step workflow.scorer-throwing-scorer.step.generateScore: ControlScorerError: scorer bug"
+            ],
+            "persistedScores": 0
+        }
+    }
+}

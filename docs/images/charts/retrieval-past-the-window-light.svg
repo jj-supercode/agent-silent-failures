@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="517" viewBox="0 0 800 517" role="img" aria-labelledby="retrieval-past-the-window-title retrieval-past-the-window-description" font-family="system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif"><title id="retrieval-past-the-window-title">Text past the embedder window is hard to find</title>
+<desc id="retrieval-past-the-window-description">Mastra's defaults: @mastra/rag chunks to 4,000 characters and @mastra/fastembed embeds the first 512 tokens of each input. Share of queries that find their source, with Wilson 95% intervals. A long book: source chunk in the top 5. Sentence from a chunk's head: Query text inside the embedder window 83/120, 69.2% (95% CI 60.4% to 76.7%). Sentence from a chunk's tail: Query text past the window (never embedded) 37/120, 30.8% (95% CI 23.3% to 39.6%). Same tail sentence, chunks of 1,500 characters: Query text inside the embedder window 100/120, 83.3% (95% CI 75.6% to 88.9%). Mastra Memory semantic recall: message in the top 3. Sentence in the first 512 tokens: Query text inside the embedder window 32/39, 82.1% (95% CI 67.3% to 91.0%). Sentence after token 512: Query text past the window (never embedded) 14/38, 36.8% (95% CI 23.4% to 52.7%). Scripted (offline, no model). Sources: results/repros/fastembed-truncation.json (darwin 25.6.0 arm64, Node v24.22.0, generated 2026-10-15) and results/repros/memory-fastembed-truncation.json (darwin 25.6.0 arm64, Node v24.22.0, generated 2026-10-15).</desc>
+<rect width="800" height="517" fill="#ffffff"/>
+<text x="24" y="41" fill="#0b0b0b" font-size="17" font-weight="600">Text past the embedder window is hard to find</text>
+<text x="24" y="64" fill="#52514e" font-size="13">Mastra's defaults: @mastra/rag chunks to 4,000 characters and @mastra/fastembed embeds the first 512 tokens of</text>
+<text x="24" y="82" fill="#52514e" font-size="13">each input. Share of queries that find their source, with Wilson 95% intervals.</text>
+<circle cx="29" cy="108" r="5" fill="#2a78d6"/>
+<text x="42" y="112" fill="#52514e" font-size="13">Query text inside the embedder window</text>
+<circle cx="322.9" cy="108" r="5" fill="#eb6834"/>
+<text x="335.9" y="112" fill="#52514e" font-size="13">Query text past the window (never embedded)</text>
+<text x="24" y="150" fill="#0b0b0b" font-size="13" font-weight="600">A long book: source chunk in the top 5</text>
+<text x="290" y="170" fill="#6b6a65" font-size="11" text-anchor="middle">0%</text>
+<text x="367.2" y="170" fill="#6b6a65" font-size="11" text-anchor="middle">20%</text>
+<text x="444.4" y="170" fill="#6b6a65" font-size="11" text-anchor="middle">40%</text>
+<text x="521.6" y="170" fill="#6b6a65" font-size="11" text-anchor="middle">60%</text>
+<text x="598.8" y="170" fill="#6b6a65" font-size="11" text-anchor="middle">80%</text>
+<text x="676" y="170" fill="#6b6a65" font-size="11" text-anchor="middle">100%</text>
+<line x1="290" x2="290" y1="176" y2="308" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="367.2" x2="367.2" y1="176" y2="308" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="444.4" x2="444.4" y1="176" y2="308" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="521.6" x2="521.6" y1="176" y2="308" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="598.8" x2="598.8" y1="176" y2="308" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="676" x2="676" y1="176" y2="308" stroke="#e1e0d9" stroke-width="1"/>
+<text x="24" y="199" fill="#52514e" font-size="13">Sentence from a chunk's head</text>
+<g><title>Query text inside the embedder window: 83/120, 69.2% (95% CI 60.4% to 76.7%)</title>
+<line x1="523.2" x2="586.2" y1="195" y2="195" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="523.2" x2="523.2" y1="191" y2="199" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="586.2" x2="586.2" y1="191" y2="199" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="557" cy="195" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<text x="597.2" y="199" fill="#52514e" font-size="12" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">69.2% (83/120)</text></g>
+<text x="24" y="237" fill="#52514e" font-size="13">Sentence from a chunk's tail</text>
+<g><title>Query text past the window (never embedded): 37/120, 30.8% (95% CI 23.3% to 39.6%)</title>
+<line x1="379.8" x2="442.8" y1="233" y2="233" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="379.8" x2="379.8" y1="229" y2="237" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="442.8" x2="442.8" y1="229" y2="237" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<circle cx="409" cy="233" r="5" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="453.8" y="237" fill="#52514e" font-size="12" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">30.8% (37/120)</text></g>
+<text x="24" y="275" fill="#52514e" font-size="13">Same tail sentence, chunks of 1,500</text>
+<text x="24" y="293" fill="#52514e" font-size="13">characters</text>
+<g><title>Query text inside the embedder window: 100/120, 83.3% (95% CI 75.6% to 88.9%)</title>
+<line x1="582" x2="633.3" y1="280" y2="280" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="582" x2="582" y1="276" y2="284" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="633.3" x2="633.3" y1="276" y2="284" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="611.7" cy="280" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<text x="644.3" y="284" fill="#52514e" font-size="12" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">83.3% (100/120)</text></g>
+<text x="24" y="341" fill="#0b0b0b" font-size="13" font-weight="600">Mastra Memory semantic recall: message in the top 3</text>
+<text x="290" y="361" fill="#6b6a65" font-size="11" text-anchor="middle">0%</text>
+<text x="367.2" y="361" fill="#6b6a65" font-size="11" text-anchor="middle">20%</text>
+<text x="444.4" y="361" fill="#6b6a65" font-size="11" text-anchor="middle">40%</text>
+<text x="521.6" y="361" fill="#6b6a65" font-size="11" text-anchor="middle">60%</text>
+<text x="598.8" y="361" fill="#6b6a65" font-size="11" text-anchor="middle">80%</text>
+<text x="676" y="361" fill="#6b6a65" font-size="11" text-anchor="middle">100%</text>
+<line x1="290" x2="290" y1="367" y2="443" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="367.2" x2="367.2" y1="367" y2="443" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="444.4" x2="444.4" y1="367" y2="443" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="521.6" x2="521.6" y1="367" y2="443" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="598.8" x2="598.8" y1="367" y2="443" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="676" x2="676" y1="367" y2="443" stroke="#e1e0d9" stroke-width="1"/>
+<text x="24" y="390" fill="#52514e" font-size="13">Sentence in the first 512 tokens</text>
+<g><title>Query text inside the embedder window: 32/39, 82.1% (95% CI 67.3% to 91.0%)</title>
+<line x1="549.9" x2="641.3" y1="386" y2="386" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="549.9" x2="549.9" y1="382" y2="390" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="641.3" x2="641.3" y1="382" y2="390" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="606.7" cy="386" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
+<text x="652.3" y="390" fill="#52514e" font-size="12" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">82.1% (32/39)</text></g>
+<text x="24" y="428" fill="#52514e" font-size="13">Sentence after token 512</text>
+<g><title>Query text past the window (never embedded): 14/38, 36.8% (95% CI 23.4% to 52.7%)</title>
+<line x1="380.2" x2="493.5" y1="424" y2="424" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="380.2" x2="380.2" y1="420" y2="428" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="493.5" x2="493.5" y1="420" y2="428" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<circle cx="432.2" cy="424" r="5" fill="#eb6834" stroke="#ffffff" stroke-width="2"/>
+<text x="504.5" y="428" fill="#52514e" font-size="12" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">36.8% (14/38)</text></g>
+<text x="24" y="474" fill="#6b6a65" font-size="11">Scripted (offline, no model). Sources: results/repros/fastembed-truncation.json (darwin 25.6.0 arm64, Node v24.22.0, generated</text>
+<text x="24" y="489" fill="#6b6a65" font-size="11">2026-10-15) and results/repros/memory-fastembed-truncation.json (darwin 25.6.0 arm64, Node v24.22.0, generated 2026-10-15).</text></svg>

@@ -1,0 +1,150 @@
+import { describe, expect, test } from 'vitest';
+
+import { summarize } from '../summary/summarize.ts';
+import {
+    cleanCondition,
+    clearVerdict,
+    entryVerdict,
+    faultedCondition,
+    firedVerdict,
+    sampleEntryId,
+    sampleRuns,
+} from '../testing.ts';
+import type { ReportProvenance } from '../model.ts';
+import { rateOf } from '../stats/rate.ts';
+import { storedBedReportSchema } from '../report-schema.ts';
+import { entryResultsBlock } from './entry-results-block.ts';
+import { renderJsonReport } from './json-report.ts';
+import { markdownTable } from './markdown-table.ts';
+import { renderMarkdownReport } from './markdown-report.ts';
+import { catchLine, rateLine } from './rate-text.ts';
+
+const provenance: ReportProvenance = {
+    source: 'scripted',
+    platform: 'linux arm64, Node v24.15.0',
+    generatedOn: '2026-10-15',
+    versions: { '@mastra/core': '1.77.0' },
+};
+
+const report = summarize([
+    ...sampleRuns(58, {
+        condition: faultedCondition(sampleEntryId),
+        verdicts: [entryVerdict(sampleEntryId, firedVerdict)],
+    }),
+    ...sampleRuns(2, {
+        condition: faultedCondition(sampleEntryId),
+        verdicts: [entryVerdict(sampleEntryId, clearVerdict)],
+    }),
+    ...sampleRuns(120, { condition: cleanCondition(), verdicts: [entryVerdict(sampleEntryId, clearVerdict)] }),
+]);
+
+describe('rateLine', () => {
+    test('prints the spec format', () => {
+        expect(rateLine('caught', rateOf(58, 60))).toBe('caught 58/60 = 96.7% [Wilson 95%: 88.6%, 99.1%]');
+    });
+
+    test('adds the rule of three at zero events', () => {
+        expect(rateLine('false alarms', rateOf(0, 120))).toBe(
+            'false alarms 0/120 = 0.0% [Wilson 95%: 0.0%, 3.1%; rule of three: 2.5%]',
+        );
+    });
+
+    test('a catch line adds the expressed-only rate when some runs were not expressed', () => {
+        expect(
+            catchLine({
+                caught: rateOf(21, 24),
+                caughtWhenExpressed: rateOf(21, 21),
+                notExpressed: 3,
+                firedWhenNotExpressed: 0,
+            }),
+        ).toBe(
+            'caught 21/24 = 87.5% [Wilson 95%: 69.0%, 95.7%]; not expressed: 3; ' +
+                'caught when expressed 21/21 = 100.0% [Wilson 95%: 84.5%, 100.0%]',
+        );
+        expect(
+            catchLine({
+                caught: rateOf(5, 5),
+                caughtWhenExpressed: rateOf(5, 5),
+                notExpressed: 0,
+                firedWhenNotExpressed: 0,
+            }),
+        ).toBe(rateLine('caught', rateOf(5, 5)));
+    });
+
+    test('a catch line names runs where the detector fired although the fault was not expressed', () => {
+        expect(
+            catchLine({
+                caught: rateOf(23, 24),
+                caughtWhenExpressed: rateOf(21, 21),
+                notExpressed: 3,
+                firedWhenNotExpressed: 2,
+            }),
+        ).toMatch(/; fired although not expressed: 2$/);
+    });
+
+    test('says so when there were no runs', () => {
+        expect(rateLine('caught', rateOf(0, 0))).toBe('caught 0/0 (no runs)');
+    });
+});
+
+describe('markdownTable', () => {
+    test('pads cells, right-aligns numbers and escapes pipes', () => {
+        const table = markdownTable(
+            [
+                { header: 'name', cell: (row: { name: string; count: number }) => row.name },
+                { header: 'count', cell: (row) => String(row.count), align: 'right' },
+            ],
+            [{ name: 'a|b', count: 12 }],
+        );
+        expect(table.split('\n')).toEqual(['| name | count |', '| ---- | ----: |', '| a\\|b |    12 |']);
+    });
+});
+
+describe('renderMarkdownReport', () => {
+    test('labels the source and prints the rate lines', () => {
+        const markdown = renderMarkdownReport(report, provenance);
+        expect(markdown).toContain('Source: `scripted`');
+        expect(markdown).toContain('caught 58/60 = 96.7% [Wilson 95%: 88.6%, 99.1%]');
+        expect(markdown).toContain('false alarms 0/120 = 0.0%');
+    });
+});
+
+describe('renderJsonReport', () => {
+    test('round-trips through JSON with its provenance', () => {
+        expect(JSON.parse(renderJsonReport(report, provenance))).toMatchObject({ provenance, sources: ['scripted'] });
+    });
+
+    test('reads back through the stored report schema the docs generator uses, unchanged', () => {
+        expect(storedBedReportSchema.parse(JSON.parse(renderJsonReport(report, provenance)))).toEqual({
+            provenance,
+            ...report,
+        });
+    });
+});
+
+describe('entry results block', () => {
+    test('holds held-out numbers, the source label and the by-construction caveat', () => {
+        const block = entryResultsBlock(report, sampleEntryId, provenance);
+        expect(block).toContain('caught 58/60');
+        expect(block).toContain('`scripted`');
+        expect(block).toContain('linux arm64');
+        expect(block).toContain('not how often the failure occurs');
+        expect(block).toContain('Generated by `pnpm docs:tables`');
+    });
+
+    test('lists what each swept threshold value would catch and fire on', () => {
+        const sweep = [
+            { threshold: 'MIN_HITS', value: 3, isDefault: true, outcome: 'fired' as const },
+            { threshold: 'MIN_HITS', value: 5, isDefault: false, outcome: 'clear' as const },
+        ];
+        const swept = summarize(
+            sampleRuns(4, {
+                condition: faultedCondition(sampleEntryId),
+                verdicts: [entryVerdict(sampleEntryId, firedVerdict, sweep)],
+            }),
+        );
+        expect(entryResultsBlock(swept, sampleEntryId, provenance)).toContain(
+            '  - `MIN_HITS`: 3 (default): caught 4/4, false alarms -; 5: caught 0/4, false alarms -',
+        );
+    });
+});

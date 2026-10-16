@@ -1,0 +1,67 @@
+{
+    "reproductionId": "fastembed-truncation",
+    "outcome": "reproduces",
+    "summary": "249/249 default chunks exceed fastembed's 512-token window; 36.01% of corpus characters are never embedded; top-5 hit rate for sentences in chunk tails is 0.3083 (95% CI 0.2327 to 0.3958, n=120) vs 0.6917 (95% CI 0.6042 to 0.7673, n=120) for chunk heads, no warning raised",
+    "source": "scripted",
+    "platform": "darwin 25.6.0 arm64, Node v24.22.0",
+    "generatedOn": "2026-10-15",
+    "versions": {
+        "@mastra/core": "1.77.0",
+        "@mastra/evals": "1.10.7",
+        "@mastra/fastembed": "1.3.3",
+        "@mastra/libsql": "1.26.1",
+        "@mastra/memory": "1.37.1",
+        "@mastra/observability": "1.20.0",
+        "@mastra/rag": "2.6.7",
+        "ai": "7.0.140"
+    },
+    "evidence": {
+        "corpus": "On the Origin of Species, Project Gutenberg eBook #1228, body only",
+        "corpusCharacters": 949181,
+        "window": { "tokens": 512, "contentTokens": 510 },
+        "chunking": "MDocument.fromText(corpus).chunk() with no options (recursive, maxSize 4000, overlap 200)",
+        "defaultChunks": {
+            "count": 249,
+            "characters": { "count": 249, "min": 2490, "median": 3967, "p90": 3992, "max": 3999, "mean": 3959.988 },
+            "bgeContentTokens": { "count": 249, "min": 635, "median": 793, "p90": 844, "max": 1081, "mean": 799.7912 },
+            "overflowingCount": 249,
+            "overflowingShare": 1,
+            "neverEmbeddedCharacterShareOfCorpus": 0.3601,
+            "neverEmbeddedCharacterShareOfOverflowingChunk": {
+                "count": 249,
+                "min": 0.198,
+                "median": 0.3574,
+                "p90": 0.4006,
+                "max": 0.5261,
+                "mean": 0.3598
+            }
+        },
+        "cutPointCheck": {
+            "cosineFullChunkVsMeasuredPrefix": 0.9999999999999999,
+            "cosineFullChunkVsShorterPrefix": 0.9555318738244898,
+            "cosineFullChunkVsPrefixPlusUnrelatedTail": 0.9999999999999999
+        },
+        "fittingControl": {
+            "chunking": "chunk({ maxSize: 1500, overlap: 150 })",
+            "maxSize": 1500,
+            "count": 713,
+            "bgeContentTokens": { "count": 713, "min": 145, "median": 293, "p90": 319, "max": 417, "mean": 296.2286 },
+            "overflowingCount": 0
+        },
+        "retrieval": {
+            "topK": 5,
+            "defaultChunksHeadSentences": {
+                "hitAt1": { "successes": 52, "trials": 120, "rate": 0.4333, "low": 0.3481, "high": 0.5227 },
+                "hitAtTopK": { "successes": 83, "trials": 120, "rate": 0.6917, "low": 0.6042, "high": 0.7673 }
+            },
+            "defaultChunksTailSentences": {
+                "hitAt1": { "successes": 14, "trials": 120, "rate": 0.1167, "low": 0.0708, "high": 0.1863 },
+                "hitAtTopK": { "successes": 37, "trials": 120, "rate": 0.3083, "low": 0.2327, "high": 0.3958 }
+            },
+            "fittingChunksSameTailSentences": {
+                "hitAt1": { "successes": 75, "trials": 120, "rate": 0.625, "low": 0.5358, "high": 0.7065 },
+                "hitAtTopK": { "successes": 100, "trials": 120, "rate": 0.8333, "low": 0.7565, "high": 0.8894 }
+            }
+        }
+    }
+}

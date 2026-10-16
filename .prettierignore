@@ -1,0 +1,9 @@
+pnpm-lock.yaml
+data/hotpotqa/questions.jsonl
+dist/
+# Recorder output, byte for byte: replay validates it with zod, and a test scans it for secrets.
+fixtures/
+# Third-party text redistributed unchanged.
+repros/corpus/
+# Upstream example code reproduced verbatim; its repro asserts that it does not compile.
+repros/*/fixtures/

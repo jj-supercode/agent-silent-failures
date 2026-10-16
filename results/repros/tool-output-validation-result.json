@@ -1,0 +1,50 @@
+{
+    "reproductionId": "tool-output-validation-result",
+    "outcome": "reproduces",
+    "summary": "tool output failing outputSchema reached the model as a tool result; generate() returned text \"The document scored well.\" and 1 console lines",
+    "source": "scripted",
+    "platform": "darwin 25.6.0 arm64, Node v24.22.0",
+    "generatedOn": "2026-10-15",
+    "versions": {
+        "@mastra/core": "1.77.0",
+        "@mastra/evals": "1.10.7",
+        "@mastra/fastembed": "1.3.3",
+        "@mastra/libsql": "1.26.1",
+        "@mastra/memory": "1.37.1",
+        "@mastra/observability": "1.20.0",
+        "@mastra/rag": "2.6.7",
+        "ai": "7.0.140"
+    },
+    "evidence": {
+        "finalText": "The document scored well.",
+        "finishReason": "stop",
+        "toolResultPayloads": [
+            {
+                "error": true,
+                "message": "Tool output validation failed for scoreDocument. The tool returned invalid output:\n- score: Invalid input: expected number, received NaN\n\nReturned output: {\n  \"documentId\": \"doc-a\",\n  \"score\": null\n}",
+                "validationErrors": {
+                    "errors": [],
+                    "fields": { "score": { "errors": ["Invalid input: expected number, received NaN"], "fields": {} } }
+                }
+            }
+        ],
+        "consoleLines": ["warn: Tool output validation failed for scoreDocument. The tool returned invalid output:"],
+        "toolSpan": {
+            "errorInfo": null,
+            "attributes": {
+                "toolDescription": "Scores a document",
+                "toolType": "tool",
+                "toolCallId": "call-1",
+                "success": false
+            },
+            "output": {
+                "error": true,
+                "message": "Tool output validation failed for scoreDocument. The tool returned invalid output:\n- score: Invalid input: expected number, received NaN\n\nReturned output: {\n  \"documentId\": \"doc-a\",\n  \"score\": null\n}",
+                "validationErrors": {
+                    "errors": [],
+                    "fields": { "score": { "errors": ["Invalid input: expected number, received NaN"], "fields": {} } }
+                }
+            }
+        }
+    }
+}

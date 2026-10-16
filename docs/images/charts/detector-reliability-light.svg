@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="973" viewBox="0 0 800 973" role="img" aria-labelledby="detector-reliability-title detector-reliability-description" font-family="system-ui, -apple-system, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif"><title id="detector-reliability-title">None of the 7 detectors fired on a clean run, scripted or recorded</title>
+<desc id="detector-reliability-description">Held-out scripted bed: 1,176 agent runs and 768 ingestions, faulted and clean; recorded: 312 clean runs and the infrastructure faults a real model can meet. Each dot is a share with its Wilson 95% interval. The false-alarm axis is zoomed in. Caught on faulted runs. embedding-coverage: Scripted bed, held-out split 113/120, 94.2% (95% CI 88.4% to 97.1%); Recorded from claude-haiku-5-5: not recordable: ingestion calls no model. flat-score: Scripted bed, held-out split 72/72, 100.0% (95% CI 94.9% to 100.0%); Recorded from claude-haiku-5-5 36/36, 100.0% (95% CI 90.4% to 100.0%). empty-retrieval-answered: Scripted bed, held-out split 72/72, 100.0% (95% CI 94.9% to 100.0%); Recorded from claude-haiku-5-5: no recorded fault runs. swallowed-tool-error: Scripted bed, held-out split 72/72, 100.0% (95% CI 94.9% to 100.0%); Recorded from claude-haiku-5-5: no recorded fault runs. tool-loop: Scripted bed, held-out split 144/144, 100.0% (95% CI 97.4% to 100.0%); Recorded from claude-haiku-5-5: no recorded fault runs. delegation-ping-pong: Scripted bed, held-out split 96/96, 100.0% (95% CI 96.2% to 100.0%); Recorded from claude-haiku-5-5: no recorded fault runs. ignored-worker-result: Scripted bed, held-out split 46/48, 95.8% (95% CI 86.0% to 98.8%); Recorded from claude-haiku-5-5: no recorded fault runs. False alarms on clean runs (lower is better; recorded values in-sample). embedding-coverage: Scripted bed, held-out split 0/288, 0.0% (95% CI 0.0% to 1.3%); Recorded from claude-haiku-5-5: not recordable: ingestion calls no model. flat-score: Scripted bed, held-out split 0/408, 0.0% (95% CI 0.0% to 0.9%); Recorded from claude-haiku-5-5 0/252, 0.0% (95% CI 0.0% to 1.5%). empty-retrieval-answered: Scripted bed, held-out split 0/480, 0.0% (95% CI 0.0% to 0.8%); Recorded from claude-haiku-5-5 0/288, 0.0% (95% CI 0.0% to 1.3%). swallowed-tool-error: Scripted bed, held-out split 0/552, 0.0% (95% CI 0.0% to 0.7%); Recorded from claude-haiku-5-5 0/312, 0.0% (95% CI 0.0% to 1.2%). tool-loop: Scripted bed, held-out split 0/552, 0.0% (95% CI 0.0% to 0.7%); Recorded from claude-haiku-5-5 0/312, 0.0% (95% CI 0.0% to 1.2%). delegation-ping-pong: Scripted bed, held-out split 0/168, 0.0% (95% CI 0.0% to 2.2%); Recorded from claude-haiku-5-5 0/96, 0.0% (95% CI 0.0% to 3.8%). ignored-worker-result: Scripted bed, held-out split 0/152, 0.0% (95% CI 0.0% to 2.5%); Recorded from claude-haiku-5-5 0/87, 0.0% (95% CI 0.0% to 4.2%). Sources: results/offline/report.json (scripted) and results/replay/report.json (fixtures/live/2026-10-15, scored offline by pnpm replay). The recorded false alarms are in-sample: detector rules were revised after reading this recording. Caught counts every faulted run, including runs where the fault changed nothing observable; the catalog table also gives the rate over the runs that expressed it. A behaviour fault replaces the model, so it has no recorded runs.</desc>
+<rect width="800" height="973" fill="#ffffff"/>
+<text x="24" y="41" fill="#0b0b0b" font-size="17" font-weight="600">None of the 7 detectors fired on a clean run, scripted or recorded</text>
+<text x="24" y="64" fill="#52514e" font-size="13">Held-out scripted bed: 1,176 agent runs and 768 ingestions, faulted and clean; recorded: 312 clean runs and the</text>
+<text x="24" y="82" fill="#52514e" font-size="13">infrastructure faults a real model can meet. Each dot is a share with its Wilson 95% interval. The false-alarm</text>
+<text x="24" y="100" fill="#52514e" font-size="13">axis is zoomed in.</text>
+<circle cx="29" cy="126" r="5" fill="#2a78d6"/>
+<text x="42" y="130" fill="#52514e" font-size="13">Scripted bed, held-out split</text>
+<circle cx="262.6" cy="126" r="5" fill="#eb6834"/>
+<text x="275.6" y="130" fill="#52514e" font-size="13">Recorded from claude-haiku-5-5</text>
+<text x="24" y="168" fill="#0b0b0b" font-size="13" font-weight="600">Caught on faulted runs</text>
+<text x="290" y="188" fill="#6b6a65" font-size="11" text-anchor="middle">0%</text>
+<text x="367.2" y="188" fill="#6b6a65" font-size="11" text-anchor="middle">20%</text>
+<text x="444.4" y="188" fill="#6b6a65" font-size="11" text-anchor="middle">40%</text>
+<text x="521.6" y="188" fill="#6b6a65" font-size="11" text-anchor="middle">60%</text>
+<text x="598.8" y="188" fill="#6b6a65" font-size="11" text-anchor="middle">80%</text>
+<text x="676" y="188" fill="#6b6a65" font-size="11" text-anchor="middle">100%</text>
+<line x1="290" x2="290" y1="194" y2="502" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="367.2" x2="367.2" y1="194" y2="502" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="444.4" x2="444.4" y1="194" y2="502" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="521.6" x2="521.6" y1="194" y2="502" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="598.8" x2="598.8" y1="194" y2="502" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="676" x2="676" y1="194" y2="502" stroke="#e1e0d9" stroke-width="1"/>
+<text x="24" y="220" fill="#52514e" font-size="13">embedding-coverage</text>
+<g><title>Scripted bed, held-out split: 113/120, 94.2% (95% CI 88.4% to 97.1%)</title>
+<line x1="631.4" x2="665" y1="210" y2="210" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="631.4" x2="631.4" y1="206" y2="214" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="665" x2="665" y1="206" y2="214" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="653.5" cy="210" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/></g>
+<text x="290" y="226" fill="#6b6a65" font-size="12" font-style="italic" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">not recordable: ingestion calls no model</text>
+<text x="24" y="264" fill="#52514e" font-size="13">flat-score</text>
+<g><title>Scripted bed, held-out split: 72/72, 100.0% (95% CI 94.9% to 100.0%)</title>
+<line x1="656.4" x2="676" y1="254" y2="254" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="656.4" x2="656.4" y1="250" y2="258" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="676" x2="676" y1="250" y2="258" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="676" cy="254" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/></g>
+<g><title>Recorded from claude-haiku-5-5: 36/36, 100.0% (95% CI 90.4% to 100.0%)</title>
+<line x1="638.8" x2="676" y1="266" y2="266" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="638.8" x2="638.8" y1="262" y2="270" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="676" x2="676" y1="262" y2="270" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<circle cx="676" cy="266" r="5" fill="#eb6834" stroke="#ffffff" stroke-width="2"/></g>
+<text x="24" y="308" fill="#52514e" font-size="13">empty-retrieval-answered</text>
+<g><title>Scripted bed, held-out split: 72/72, 100.0% (95% CI 94.9% to 100.0%)</title>
+<line x1="656.4" x2="676" y1="298" y2="298" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="656.4" x2="656.4" y1="294" y2="302" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="676" x2="676" y1="294" y2="302" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="676" cy="298" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/></g>
+<text x="290" y="314" fill="#6b6a65" font-size="12" font-style="italic" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">no recorded fault runs</text>
+<text x="24" y="352" fill="#52514e" font-size="13">swallowed-tool-error</text>
+<g><title>Scripted bed, held-out split: 72/72, 100.0% (95% CI 94.9% to 100.0%)</title>
+<line x1="656.4" x2="676" y1="342" y2="342" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="656.4" x2="656.4" y1="338" y2="346" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="676" x2="676" y1="338" y2="346" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="676" cy="342" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/></g>
+<text x="290" y="358" fill="#6b6a65" font-size="12" font-style="italic" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">no recorded fault runs</text>
+<text x="24" y="396" fill="#52514e" font-size="13">tool-loop</text>
+<g><title>Scripted bed, held-out split: 144/144, 100.0% (95% CI 97.4% to 100.0%)</title>
+<line x1="666" x2="676" y1="386" y2="386" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="666" x2="666" y1="382" y2="390" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="676" x2="676" y1="382" y2="390" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="676" cy="386" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/></g>
+<text x="290" y="402" fill="#6b6a65" font-size="12" font-style="italic" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">no recorded fault runs</text>
+<text x="24" y="440" fill="#52514e" font-size="13">delegation-ping-pong</text>
+<g><title>Scripted bed, held-out split: 96/96, 100.0% (95% CI 96.2% to 100.0%)</title>
+<line x1="661.1" x2="676" y1="430" y2="430" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="661.1" x2="661.1" y1="426" y2="434" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="676" x2="676" y1="426" y2="434" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="676" cy="430" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/></g>
+<text x="290" y="446" fill="#6b6a65" font-size="12" font-style="italic" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">no recorded fault runs</text>
+<text x="24" y="484" fill="#52514e" font-size="13">ignored-worker-result</text>
+<g><title>Scripted bed, held-out split: 46/48, 95.8% (95% CI 86.0% to 98.8%)</title>
+<line x1="622.1" x2="671.6" y1="474" y2="474" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="622.1" x2="622.1" y1="470" y2="478" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="671.6" x2="671.6" y1="470" y2="478" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="659.9" cy="474" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/></g>
+<text x="290" y="490" fill="#6b6a65" font-size="12" font-style="italic" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">no recorded fault runs</text>
+<text x="24" y="535" fill="#0b0b0b" font-size="13" font-weight="600">False alarms on clean runs (lower is better; recorded values in-sample)</text>
+<text x="290" y="555" fill="#6b6a65" font-size="11" text-anchor="middle">0%</text>
+<text x="367.2" y="555" fill="#6b6a65" font-size="11" text-anchor="middle">1%</text>
+<text x="444.4" y="555" fill="#6b6a65" font-size="11" text-anchor="middle">2%</text>
+<text x="521.6" y="555" fill="#6b6a65" font-size="11" text-anchor="middle">3%</text>
+<text x="598.8" y="555" fill="#6b6a65" font-size="11" text-anchor="middle">4%</text>
+<text x="676" y="555" fill="#6b6a65" font-size="11" text-anchor="middle">5%</text>
+<line x1="290" x2="290" y1="561" y2="869" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="367.2" x2="367.2" y1="561" y2="869" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="444.4" x2="444.4" y1="561" y2="869" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="521.6" x2="521.6" y1="561" y2="869" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="598.8" x2="598.8" y1="561" y2="869" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="676" x2="676" y1="561" y2="869" stroke="#e1e0d9" stroke-width="1"/>
+<text x="24" y="587" fill="#52514e" font-size="13">embedding-coverage</text>
+<g><title>Scripted bed, held-out split: 0/288, 0.0% (95% CI 0.0% to 1.3%)</title>
+<line x1="290" x2="391.6" y1="577" y2="577" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="290" x2="290" y1="573" y2="581" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="391.6" x2="391.6" y1="573" y2="581" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="290" cy="577" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/></g>
+<text x="290" y="593" fill="#6b6a65" font-size="12" font-style="italic" stroke="#ffffff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">not recordable: ingestion calls no model</text>
+<text x="24" y="631" fill="#52514e" font-size="13">flat-score</text>
+<g><title>Scripted bed, held-out split: 0/408, 0.0% (95% CI 0.0% to 0.9%)</title>
+<line x1="290" x2="362" y1="621" y2="621" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="290" x2="290" y1="617" y2="625" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="362" x2="362" y1="617" y2="625" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="290" cy="621" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/></g>
+<g><title>Recorded from claude-haiku-5-5: 0/252, 0.0% (95% CI 0.0% to 1.5%)</title>
+<line x1="290" x2="405.9" y1="633" y2="633" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="290" x2="290" y1="629" y2="637" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="405.9" x2="405.9" y1="629" y2="637" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<circle cx="290" cy="633" r="5" fill="#eb6834" stroke="#ffffff" stroke-width="2"/></g>
+<text x="24" y="675" fill="#52514e" font-size="13">empty-retrieval-answered</text>
+<g><title>Scripted bed, held-out split: 0/480, 0.0% (95% CI 0.0% to 0.8%)</title>
+<line x1="290" x2="351.3" y1="665" y2="665" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="290" x2="290" y1="661" y2="669" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="351.3" x2="351.3" y1="661" y2="669" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="290" cy="665" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/></g>
+<g><title>Recorded from claude-haiku-5-5: 0/288, 0.0% (95% CI 0.0% to 1.3%)</title>
+<line x1="290" x2="391.6" y1="677" y2="677" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="290" x2="290" y1="673" y2="681" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="391.6" x2="391.6" y1="673" y2="681" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<circle cx="290" cy="677" r="5" fill="#eb6834" stroke="#ffffff" stroke-width="2"/></g>
+<text x="24" y="719" fill="#52514e" font-size="13">swallowed-tool-error</text>
+<g><title>Scripted bed, held-out split: 0/552, 0.0% (95% CI 0.0% to 0.7%)</title>
+<line x1="290" x2="343.4" y1="709" y2="709" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="290" x2="290" y1="705" y2="713" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="343.4" x2="343.4" y1="705" y2="713" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="290" cy="709" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/></g>
+<g><title>Recorded from claude-haiku-5-5: 0/312, 0.0% (95% CI 0.0% to 1.2%)</title>
+<line x1="290" x2="383.9" y1="721" y2="721" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="290" x2="290" y1="717" y2="725" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="383.9" x2="383.9" y1="717" y2="725" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<circle cx="290" cy="721" r="5" fill="#eb6834" stroke="#ffffff" stroke-width="2"/></g>
+<text x="24" y="763" fill="#52514e" font-size="13">tool-loop</text>
+<g><title>Scripted bed, held-out split: 0/552, 0.0% (95% CI 0.0% to 0.7%)</title>
+<line x1="290" x2="343.4" y1="753" y2="753" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="290" x2="290" y1="749" y2="757" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="343.4" x2="343.4" y1="749" y2="757" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="290" cy="753" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/></g>
+<g><title>Recorded from claude-haiku-5-5: 0/312, 0.0% (95% CI 0.0% to 1.2%)</title>
+<line x1="290" x2="383.9" y1="765" y2="765" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="290" x2="290" y1="761" y2="769" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="383.9" x2="383.9" y1="761" y2="769" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<circle cx="290" cy="765" r="5" fill="#eb6834" stroke="#ffffff" stroke-width="2"/></g>
+<text x="24" y="807" fill="#52514e" font-size="13">delegation-ping-pong</text>
+<g><title>Scripted bed, held-out split: 0/168, 0.0% (95% CI 0.0% to 2.2%)</title>
+<line x1="290" x2="462.6" y1="797" y2="797" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="290" x2="290" y1="793" y2="801" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="462.6" x2="462.6" y1="793" y2="801" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="290" cy="797" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/></g>
+<g><title>Recorded from claude-haiku-5-5: 0/96, 0.0% (95% CI 0.0% to 3.8%)</title>
+<line x1="290" x2="587" y1="809" y2="809" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="290" x2="290" y1="805" y2="813" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="587" x2="587" y1="805" y2="813" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<circle cx="290" cy="809" r="5" fill="#eb6834" stroke="#ffffff" stroke-width="2"/></g>
+<text x="24" y="851" fill="#52514e" font-size="13">ignored-worker-result</text>
+<g><title>Scripted bed, held-out split: 0/152, 0.0% (95% CI 0.0% to 2.5%)</title>
+<line x1="290" x2="480.3" y1="841" y2="841" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="290" x2="290" y1="837" y2="845" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<line x1="480.3" x2="480.3" y1="837" y2="845" stroke="#2a78d6" stroke-width="2" stroke-linecap="round"/>
+<circle cx="290" cy="841" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/></g>
+<g><title>Recorded from claude-haiku-5-5: 0/87, 0.0% (95% CI 0.0% to 4.2%)</title>
+<line x1="290" x2="616.5" y1="853" y2="853" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="290" x2="290" y1="849" y2="857" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<line x1="616.5" x2="616.5" y1="849" y2="857" stroke="#eb6834" stroke-width="2" stroke-linecap="round"/>
+<circle cx="290" cy="853" r="5" fill="#eb6834" stroke="#ffffff" stroke-width="2"/></g>
+<text x="24" y="900" fill="#6b6a65" font-size="11">Sources: results/offline/report.json (scripted) and results/replay/report.json (fixtures/live/2026-10-15, scored offline by pnpm</text>
+<text x="24" y="915" fill="#6b6a65" font-size="11">replay). The recorded false alarms are in-sample: detector rules were revised after reading this recording. Caught counts every faulted</text>
+<text x="24" y="930" fill="#6b6a65" font-size="11">run, including runs where the fault changed nothing observable; the catalog table also gives the rate over the runs that expressed it. A</text>
+<text x="24" y="945" fill="#6b6a65" font-size="11">behaviour fault replaces the model, so it has no recorded runs.</text></svg>

@@ -1,0 +1,55 @@
+name: False alarm report
+description: A canary fired on a run that was fine, or stayed clear on a run that failed.
+title: '[false alarm] '
+labels: ['false-alarm']
+body:
+    - type: dropdown
+      id: entry
+      attributes:
+          label: Entry
+          options:
+              - embedding-coverage
+              - flat-score
+              - empty-retrieval-answered
+              - swallowed-tool-error
+              - tool-loop
+              - delegation-ping-pong
+              - ignored-worker-result
+      validations:
+          required: true
+    - type: dropdown
+      id: kind
+      attributes:
+          label: Kind
+          options:
+              - Fired on a correct run (false alarm)
+              - Stayed clear on a failed run (miss)
+      validations:
+          required: true
+    - type: textarea
+      id: verdict
+      attributes:
+          label: Verdict and evidence
+          description: The score, the reason text and the span ids the scorer reported.
+          render: text
+      validations:
+          required: true
+    - type: textarea
+      id: why
+      attributes:
+          label: Why the run was correct (or failed)
+      validations:
+          required: true
+    - type: textarea
+      id: trace
+      attributes:
+          label: Sanitized trace (optional, most helpful)
+          description: The stored spans as JSON (Studio "Download trace JSON"), with prompts, RequestContext, keys and personal data removed. fixtures/README.md lists what a detector needs.
+          render: json
+    - type: input
+      id: versions
+      attributes:
+          label: Versions
+          placeholder: '@mastra/core 1.77.0, agent-silent-failures commit abc1234, Node 24.15'
+      validations:
+          required: true

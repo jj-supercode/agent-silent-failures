@@ -1,0 +1,1117 @@
+{
+    "provenance": {
+        "source": "scripted",
+        "platform": "darwin 25.6.0 arm64, Node v24.22.0 (recording)",
+        "generatedOn": "2026-10-15",
+        "versions": {
+            "@mastra/core": "1.77.0",
+            "@mastra/observability": "1.20.0",
+            "@mastra/rag": "2.6.7",
+            "@mastra/libsql": "1.26.1",
+            "@mastra/fastembed": "1.3.3",
+            "ai": "7.0.140"
+        }
+    },
+    "agentModel": "scripted-policy",
+    "questionCount": 3,
+    "presets": [
+        {
+            "kind": "ran",
+            "preset": "collapsed-embedder",
+            "expectedEntry": "flat-score",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "Col. John (Johannes) Bowman (17 December 1738 – May 4, 1784) was an 18th-century American pioneer, colonial militia officer and sheriff, the first appointed in Lincoln County, Kentucky. [S1] Oldham County is a county located in the commonwealth of Kentucky. [S2]",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: the only retrieval returned rows with no ranking signal (score spread 0.00)"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "the only retrieval found rows (5 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (1 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "Col. John (Johannes) Bowman (17 December 1738 – May 4, 1784) was an 18th-century American pioneer, colonial militia officer and sheriff, the first appointed in Lincoln County, Kentucky. [S1] Oldham County is a county located in the commonwealth of Kentucky. [S2]",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: the only retrieval returned rows with no ranking signal (score spread 0.00)"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "the only retrieval found rows (5 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (1 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "Col. John (Johannes) Bowman (17 December 1738 – May 4, 1784) was an 18th-century American pioneer, colonial militia officer and sheriff, the first appointed in Lincoln County, Kentucky. [S1] Oldham County is a county located in the commonwealth of Kentucky. [S2]",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: the only retrieval returned rows with no ranking signal (score spread 0.00)"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "the only retrieval found rows (5 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (1 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "constant-fused-score",
+            "expectedEntry": "flat-score",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "National Geographic, formerly the National Geographic Magazine, is the official magazine of the National Geographic Society. [S1] High Times is a New York-based monthly magazine founded in 1974 by Tom Forçade. [S2]",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: the only retrieval returned rows with no ranking signal (score spread 0.00)"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "the only retrieval found rows (5 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (1 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "The Ring (often called The Ring magazine or Ring TV) is an American boxing magazine that was first published in 1922 as a boxing and wrestling magazine. [S1] Disney Magazine was an official Disney magazine that was published quarterly from December 1965 to April 2005. [S2]",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: the only retrieval returned rows with no ranking signal (score spread 0.00)"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "the only retrieval found rows (5 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (1 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "Jean-François André Clervoy (born 19 November 1958) is a French engineer and a CNES and ESA astronaut. [S1] Prof. Dr. Ulrich Hans Walter (born February 9, 1954) is a German physicist/engineer and a former DFVLR astronaut. [S2]",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: the only retrieval returned rows with no ranking signal (score spread 0.00)"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "the only retrieval found rows (5 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (1 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "default-chunk-size",
+            "expectedEntry": "embedding-coverage",
+            "traces": [
+                {
+                    "kind": "ingestion",
+                    "outcomes": [
+                        {
+                            "entryId": "embedding-coverage",
+                            "kind": "fired",
+                            "reason": "fired, severity 0.28: 58 of 77 chunks exceed the 512-token embedder window (longest 938 tokens, chunks up to 4000 characters): 27.8% of chunk tokens are never embedded"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "embed-batch-cap",
+            "expectedEntry": "embedding-coverage",
+            "traces": [
+                {
+                    "kind": "ingestion",
+                    "outcomes": [
+                        {
+                            "entryId": "embedding-coverage",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: the embedder returned 216 vectors for 431 chunks: 215 chunks have no vector, and the pairing of every other vector to its chunk can no longer be trusted"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "filter-key-mismatch",
+            "expectedEntry": "empty-retrieval-answered",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "The answer is the first one named in the question [S1].",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: the only retrieval came back empty, yet the agent answered: \"The answer is the first one named in the question [S1].\""
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (1 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "The answer is the first one named in the question [S1].",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: the only retrieval came back empty, yet the agent answered: \"The answer is the first one named in the question [S1].\""
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (1 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "The answer is the first one named in the question [S1].",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: the only retrieval came back empty, yet the agent answered: \"The answer is the first one named in the question [S1].\""
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (1 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "filter-key-mismatch-lenient",
+            "expectedEntry": "empty-retrieval-answered",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "The answer is the first one named in the question [S1].",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: the only retrieval came back empty, yet the agent answered: \"The answer is the first one named in the question [S1].\""
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (1 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "The answer is the first one named in the question [S1].",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: the only retrieval came back empty, yet the agent answered: \"The answer is the first one named in the question [S1].\""
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (1 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "The answer is the first one named in the question [S1].",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: the only retrieval came back empty, yet the agent answered: \"The answer is the first one named in the question [S1].\""
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (1 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "search-errors",
+            "expectedEntry": "swallowed-tool-error",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "According to the corpus, the answer to \"Was High Times or National Geographic published first\" is well documented.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned a row list (only errors or other shapes)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: rag-agent answered without acknowledging 2 failed calls to searchCorpus that it never retried successfully"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run (1 retry of failed calls not counted)"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "According to the corpus, the answer to \"Are both Disney Magazine and The Ring still in publication\" is well documented.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned a row list (only errors or other shapes)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: rag-agent answered without acknowledging 2 failed calls to searchCorpus that it never retried successfully"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run (1 retry of failed calls not counted)"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "According to the corpus, the answer to \"Which astronaut, Jean-François Clervoy or Ulrich Walter, was born first\" is well documented.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned a row list (only errors or other shapes)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: rag-agent answered without acknowledging 2 failed calls to searchCorpus that it never retried successfully"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run (1 retry of failed calls not counted)"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "search-errors-lenient",
+            "expectedEntry": "swallowed-tool-error",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "According to the corpus, the answer to \"Was High Times or National Geographic published first\" is well documented.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned a row list (only errors or other shapes)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: rag-agent answered without acknowledging 2 failed calls to searchCorpus that it never retried successfully"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run (1 retry of failed calls not counted)"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "According to the corpus, the answer to \"Are both Disney Magazine and The Ring still in publication\" is well documented.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned a row list (only errors or other shapes)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: rag-agent answered without acknowledging 2 failed calls to searchCorpus that it never retried successfully"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run (1 retry of failed calls not counted)"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "According to the corpus, the answer to \"Which astronaut, Jean-François Clervoy or Ulrich Walter, was born first\" is well documented.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned a row list (only errors or other shapes)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: rag-agent answered without acknowledging 2 failed calls to searchCorpus that it never retried successfully"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run (1 retry of failed calls not counted)"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "search-drops-results",
+            "expectedEntry": "tool-loop",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "I could not find an answer in the corpus.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "every retrieval came back empty and the agent abstained"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (3 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "fired",
+                            "reason": "fired, severity 0.33: rag-agent called searchCorpus 3 times with near-identical arguments (similarity >= 0.8)"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "I could not find an answer in the corpus.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "every retrieval came back empty and the agent abstained"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (3 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "fired",
+                            "reason": "fired, severity 0.33: rag-agent called searchCorpus 3 times with near-identical arguments (similarity >= 0.8)"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "I could not find an answer in the corpus.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "every retrieval came back empty and the agent abstained"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (3 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "fired",
+                            "reason": "fired, severity 0.33: rag-agent called searchCorpus 3 times with near-identical arguments (similarity >= 0.8)"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "worker-reply-dropped",
+            "expectedEntry": "delegation-ping-pong",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "I could not find an answer in the corpus.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "clear",
+                            "reason": "3 retrievals ranked their rows; narrowest score spread 0.0859"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "3 of 3 retrievals found rows (15 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (6 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in 3 agent runs"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "fired",
+                            "reason": "fired, severity 0.67: supervisor-agent sent the same task to researcher 3 times"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "I could not find an answer in the corpus.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "clear",
+                            "reason": "3 retrievals ranked their rows; narrowest score spread 0.105"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "3 of 3 retrievals found rows (15 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (6 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in 3 agent runs"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "fired",
+                            "reason": "fired, severity 0.67: supervisor-agent sent the same task to researcher 3 times"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "I could not find an answer in the corpus.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "clear",
+                            "reason": "3 retrievals ranked their rows; narrowest score spread 0.131"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "3 of 3 retrievals found rows (15 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (6 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in 3 agent runs"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "fired",
+                            "reason": "fired, severity 0.67: supervisor-agent sent the same task to researcher 3 times"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "supervisor-ignores-workers",
+            "expectedEntry": "ignored-worker-result",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "High Times was first documented by Ingrid Vasquez-Tolland in 1611.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "clear",
+                            "reason": "2 retrievals ranked their rows; narrowest score spread 0.0781"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "2 of 2 retrievals found rows (10 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (4 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in 2 agent runs"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "clear",
+                            "reason": "2 delegations, no repeated task and no unproductive bounce"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: supervisor-agent answered with ingrid, vasquez-tolland, 1611 (found in no prompt, worker reply or tool result) and used none of the facts from 2 worker replies (researcher)"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "Disney Magazine was first documented by Ingrid Vasquez-Tolland in 1611.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "clear",
+                            "reason": "2 retrievals ranked their rows; narrowest score spread 0.105"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "2 of 2 retrievals found rows (10 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (4 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in 2 agent runs"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "clear",
+                            "reason": "2 delegations, no repeated task and no unproductive bounce"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: supervisor-agent answered with ingrid, vasquez-tolland, 1611 (found in no prompt, worker reply or tool result) and used none of the facts from 2 worker replies (researcher)"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "Jean-François Clervoy was first documented by Ingrid Vasquez-Tolland in 1611.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "clear",
+                            "reason": "2 retrievals ranked their rows; narrowest score spread 0.131"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "2 of 2 retrievals found rows (10 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (4 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in 2 agent runs"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "clear",
+                            "reason": "2 delegations, no repeated task and no unproductive bounce"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: supervisor-agent answered with ingrid, vasquez-tolland, 1611 (found in no prompt, worker reply or tool result) and used none of the facts from 2 worker replies (researcher)"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "spend": null,
+    "basis": { "kind": "recorded-traces", "fixtures": "fixtures/demonstration/scripted/2026-10-15" }
+}

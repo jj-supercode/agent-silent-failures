@@ -1,0 +1,38 @@
+{
+    "schemaVersion": 1,
+    "mode": "dry-run",
+    "recordedOn": "2026-10-15",
+    "startedAt": "2026-10-15T13:25:15.813Z",
+    "models": {
+        "agent": "scripted-policy",
+        "judge": null
+    },
+    "platform": {
+        "os": "darwin 25.6.0",
+        "arch": "arm64",
+        "node": "v24.22.0"
+    },
+    "versions": {
+        "@mastra/core": "1.77.0",
+        "@mastra/observability": "1.20.0",
+        "@mastra/rag": "2.6.7",
+        "@mastra/libsql": "1.26.1",
+        "@mastra/fastembed": "1.3.3",
+        "ai": "7.0.140"
+    },
+    "corpusSha256": "41d4dd065e68eb7b416c1592b9ec43482849f59a22eca20b4192e48285185a81",
+    "split": "held-out",
+    "plannedRuns": 29,
+    "keptSpanTypes": [
+        "agent_run",
+        "tool_call",
+        "mcp_tool_call",
+        "rag_ingestion",
+        "rag_action",
+        "workflow_run"
+    ],
+    "finishedAt": "2026-10-15T13:25:42.815Z",
+    "recordedRuns": 29,
+    "failedRuns": 0,
+    "stoppedEarly": null
+}

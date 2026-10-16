@@ -1,0 +1,72 @@
+# Offline by design: no job reads a secret, and nothing here calls a model provider.
+name: ci
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+
+permissions:
+    contents: read
+
+concurrency:
+    group: ci-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    check:
+        runs-on: ubuntu-24.04
+        timeout-minutes: 40
+        steps:
+            - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+              with:
+                  persist-credentials: false
+
+            - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+
+            - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+              with:
+                  node-version-file: .nvmrc
+                  cache: pnpm
+
+            - run: pnpm install --frozen-lockfile
+
+            - name: Read the embedder version for the cache keys
+              id: embedder
+              run: echo "version=$(node -p "require('./node_modules/@mastra/fastembed/package.json').version")" >> "$GITHUB_OUTPUT"
+
+            - name: Cache the embedding model
+              uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+              with:
+                  path: ~/.cache/mastra/fastembed-models
+                  key: fastembed-model-bge-small-en-v1.5-${{ steps.embedder.outputs.version }}
+
+            - name: Cache corpus embeddings
+              uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+              with:
+                  path: ~/.cache/agent-silent-failures/embeddings
+                  key: corpus-embeddings-${{ steps.embedder.outputs.version }}-${{ hashFiles('data/hotpotqa/questions.jsonl') }}
+
+            - run: pnpm model:download
+            - run: pnpm check
+            - run: pnpm demo
+            - name: Generated docs match the committed results
+              run: pnpm docs:tables --check
+            - name: Generated charts match the committed results
+              run: pnpm docs:charts --check
+
+    docker:
+        runs-on: ubuntu-24.04
+        # Measured locally: a cold image build takes about 3.3 minutes, the demo and the replay seconds each; the job
+        # runs no full bed. Twenty minutes leaves room for a slower runner without hiding a hung build.
+        timeout-minutes: 20
+        steps:
+            - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+              with:
+                  persist-credentials: false
+
+            - run: docker build -t agent-silent-failures .
+            - name: Run the demo with no network
+              run: docker run --rm --network none --memory 1g agent-silent-failures
+            - name: Replay the committed traces with no network
+              run: docker run --rm --network none --memory 1g agent-silent-failures pnpm replay

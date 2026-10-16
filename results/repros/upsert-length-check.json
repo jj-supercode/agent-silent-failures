@@ -1,0 +1,32 @@
+{
+    "reproductionId": "upsert-length-check",
+    "outcome": "reproduces",
+    "summary": "an embedder returning 3 vectors for 4 inputs: embedMany threw AI_InvalidResponseDataError; the documented upsert (metadata from chunks) threw MASTRA_VECTOR_LIBSQL_UPSERT_FAILED caused by MASTRA_VECTOR_LIBSQL_UPSERT_METADATA_LENGTH_MISMATCH; only a positional zip (metadata from the vectors) resolved",
+    "source": "scripted",
+    "platform": "darwin 25.6.0 arm64, Node v24.22.0",
+    "generatedOn": "2026-10-15",
+    "versions": {
+        "@mastra/core": "1.77.0",
+        "@mastra/evals": "1.10.7",
+        "@mastra/fastembed": "1.3.3",
+        "@mastra/libsql": "1.26.1",
+        "@mastra/memory": "1.37.1",
+        "@mastra/observability": "1.20.0",
+        "@mastra/rag": "2.6.7",
+        "ai": "7.0.140"
+    },
+    "evidence": {
+        "inputs": 4,
+        "vectorsReturned": 3,
+        "embedMany": "threw AI_InvalidResponseDataError",
+        "documentedPattern": {
+            "call": "upsert({ vectors, metadata: chunks.map(...) })",
+            "outcome": "threw MASTRA_VECTOR_LIBSQL_UPSERT_FAILED caused by MASTRA_VECTOR_LIBSQL_UPSERT_METADATA_LENGTH_MISMATCH"
+        },
+        "positionalZipPattern": {
+            "call": "upsert({ vectors, metadata: vectors.map((_, i) => chunks[i]) })",
+            "outcome": "resolved",
+            "storedRows": 3
+        }
+    }
+}

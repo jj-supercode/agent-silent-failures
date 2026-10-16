@@ -1,0 +1,45 @@
+{
+    "reproductionId": "agent-scorer-loses-tool-calls",
+    "outcome": "reproduces",
+    "summary": "type 'agent' scorer: 2 tool calls live, 0 when scoring the stored trace that holds 2 tool_call spans",
+    "source": "scripted",
+    "platform": "darwin 25.6.0 arm64, Node v24.22.0",
+    "generatedOn": "2026-10-15",
+    "versions": {
+        "@mastra/core": "1.77.0",
+        "@mastra/evals": "1.10.7",
+        "@mastra/fastembed": "1.3.3",
+        "@mastra/libsql": "1.26.1",
+        "@mastra/memory": "1.37.1",
+        "@mastra/observability": "1.20.0",
+        "@mastra/rag": "2.6.7",
+        "ai": "7.0.140"
+    },
+    "evidence": {
+        "agentToolCallsReturnedByGenerate": 2,
+        "liveScorerToolInvocations": 2,
+        "storedTraceToolCallSpans": 2,
+        "storedToolCallSpanParents": ["model_step", "model_step"],
+        "traceScoringResult": { "kind": "scored", "score": 0, "preprocessStepResult": { "toolNames": [] } },
+        "builtInToolCallAccuracy": {
+            "expectedTool": "searchCorpus",
+            "live": [
+                { "source": "TEST", "score": 0 },
+                { "source": "LIVE", "score": 1 }
+            ],
+            "traceScoring": {
+                "kind": "scored",
+                "score": 0,
+                "preprocessStepResult": {
+                    "expectedTool": "searchCorpus",
+                    "actualTools": [],
+                    "strictMode": false,
+                    "hasToolCalls": false,
+                    "correctToolCalled": false,
+                    "toolCallInfos": [],
+                    "correctOrderCalled": null
+                }
+            }
+        }
+    }
+}

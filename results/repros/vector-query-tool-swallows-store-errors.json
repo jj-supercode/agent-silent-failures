@@ -1,0 +1,43 @@
+{
+    "reproductionId": "vector-query-tool-swallows-store-errors",
+    "outcome": "reproduces",
+    "summary": "querying a missing index returned 0 sources with no error on the tool_call span (error only on the nested rag_vector_operation span); NaN scores came back as 0, 0",
+    "source": "scripted",
+    "platform": "darwin 25.6.0 arm64, Node v24.22.0",
+    "generatedOn": "2026-10-15",
+    "versions": {
+        "@mastra/core": "1.77.0",
+        "@mastra/evals": "1.10.7",
+        "@mastra/fastembed": "1.3.3",
+        "@mastra/libsql": "1.26.1",
+        "@mastra/memory": "1.37.1",
+        "@mastra/observability": "1.20.0",
+        "@mastra/rag": "2.6.7",
+        "ai": "7.0.140"
+    },
+    "evidence": {
+        "missingIndex": {
+            "finalText": "Canaries warned miners.",
+            "toolResult": { "relevantContext": [], "sources": [] },
+            "toolCallSpan": { "error": null, "success": true },
+            "vectorOperationSpanErrors": ["SQLITE_ERROR: no such table: never_created"],
+            "consoleLines": ["error: Unexpected error in VectorQueryTool execute [object Object] [object Object]"]
+        },
+        "nanScores": {
+            "finalText": "Canaries warned miners.",
+            "toolResult": {
+                "relevantContext": [
+                    { "text": "Canaries warned miners." },
+                    { "text": "Miners carried canaries underground." }
+                ],
+                "sources": [
+                    { "id": "chunk-1", "score": 0 },
+                    { "id": "chunk-2", "score": 0 }
+                ]
+            },
+            "toolCallSpan": { "error": null, "success": true },
+            "vectorOperationSpanErrors": [null],
+            "consoleLines": []
+        }
+    }
+}

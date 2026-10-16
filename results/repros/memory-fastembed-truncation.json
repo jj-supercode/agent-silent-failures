@@ -1,0 +1,35 @@
+{
+    "reproductionId": "memory-fastembed-truncation",
+    "outcome": "reproduces",
+    "summary": "semantic recall (topK 3) finds the message for 0.8205 (95% CI 0.6733 to 0.9102, n=39) of sentences from its first 512 tokens but 0.3684 (95% CI 0.2338 to 0.5272, n=38) of sentences after them",
+    "source": "scripted",
+    "platform": "darwin 25.6.0 arm64, Node v24.22.0",
+    "generatedOn": "2026-10-15",
+    "versions": {
+        "@mastra/core": "1.77.0",
+        "@mastra/evals": "1.10.7",
+        "@mastra/fastembed": "1.3.3",
+        "@mastra/libsql": "1.26.1",
+        "@mastra/memory": "1.37.1",
+        "@mastra/observability": "1.20.0",
+        "@mastra/rag": "2.6.7",
+        "ai": "7.0.140"
+    },
+    "evidence": {
+        "setup": "new Memory({ embedder: fastembed, vector: LibSQLVector, storage: LibSQLStore }), semanticRecall scope 'thread'",
+        "messages": 40,
+        "messageCharacters": { "count": 40, "min": 3933, "median": 3971, "p90": 3996, "max": 3999, "mean": 3971.675 },
+        "messageBgeContentTokens": { "count": 40, "min": 747, "median": 793, "p90": 838, "max": 1015, "mean": 796.45 },
+        "memoryChunkCharacterBudget": 16384,
+        "everyMessageIsOneMemoryChunk": true,
+        "recallTopK": 3,
+        "queriesFromEmbeddedRegion": { "successes": 32, "trials": 39, "rate": 0.8205, "low": 0.6733, "high": 0.9102 },
+        "queriesFromNeverEmbeddedRegion": {
+            "successes": 14,
+            "trials": 38,
+            "rate": 0.3684,
+            "low": 0.2338,
+            "high": 0.5272
+        }
+    }
+}

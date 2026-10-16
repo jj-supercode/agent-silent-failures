@@ -1,0 +1,1005 @@
+{
+    "provenance": {
+        "source": "recorded",
+        "platform": "darwin 25.6.0 arm64, Node v24.22.0 (recording)",
+        "generatedOn": "2026-10-16",
+        "versions": {
+            "@mastra/core": "1.77.0",
+            "@mastra/observability": "1.20.0",
+            "@mastra/rag": "2.6.7",
+            "@mastra/libsql": "1.26.1",
+            "@mastra/fastembed": "1.3.3",
+            "ai": "7.0.140"
+        }
+    },
+    "agentModel": "claude-haiku-5-5",
+    "questionCount": 3,
+    "presets": [
+        {
+            "kind": "ran",
+            "preset": "collapsed-embedder",
+            "expectedEntry": "flat-score",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "I could not find an answer in the corpus.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: 2 of 2 retrievals returned rows with no ranking signal (score spread 0.00 in all 2)"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "2 of 2 retrievals found rows (10 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (2 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "I could not find an answer in the corpus. The searches returned only passages about Kentucky pioneers, Kentucky counties, and the Battle of Blue Licks, and none mention Disney Magazine or The Ring.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: 2 of 2 retrievals returned rows with no ranking signal (score spread 0.00 in all 2)"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "2 of 2 retrievals found rows (10 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (2 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "I could not find an answer in the corpus. The searches returned only passages about Kentucky pioneers and counties (for example, [S1] and [S6] discuss John Bowman, and [S3] and [S8] discuss Benjamin Logan), and nothing about Jean-François Clervoy or Ulrich Walter, so I cannot determine their birth dates or which of them was born first.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: 2 of 2 retrievals returned rows with no ranking signal (score spread 0.00 in all 2)"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "2 of 2 retrievals found rows (10 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (2 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "constant-fused-score",
+            "expectedEntry": "flat-score",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "National Geographic was published first. Its first issue came in 1888, nine months after the National Geographic Society was founded [S3]. High Times was founded in 1974 by Tom Forçade [S1].",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: 2 of 2 retrievals returned rows with no ranking signal (score spread 0.00 in all 2)"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "2 of 2 retrievals found rows (10 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (2 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "No, Disney Magazine is not. It was published quarterly from December 1965 to April 2005 [S1], and the corpus describes it as defunct [S2]. The Ring is still in publication. It is described as an American boxing magazine, first published in 1922, that is currently owned by Oscar De La Hoya's Golden Boy Enterprises [S6].",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: 2 of 2 retrievals returned rows with no ranking signal (score spread 0.00 in all 2)"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "2 of 2 retrievals found rows (10 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (2 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "Ulrich Walter was born first. He was born on February 9, 1954 [S6], while Jean-François Clervoy was born on 19 November 1958 [S1].",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: 2 of 2 retrievals returned rows with no ranking signal (score spread 0.00 in all 2)"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "2 of 2 retrievals found rows (10 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (2 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "default-chunk-size",
+            "expectedEntry": "embedding-coverage",
+            "traces": [
+                {
+                    "kind": "ingestion",
+                    "outcomes": [
+                        {
+                            "entryId": "embedding-coverage",
+                            "kind": "fired",
+                            "reason": "fired, severity 0.28: 58 of 77 chunks exceed the 512-token embedder window (longest 938 tokens, chunks up to 4000 characters): 27.8% of chunk tokens are never embedded"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "embed-batch-cap",
+            "expectedEntry": "embedding-coverage",
+            "traces": [
+                {
+                    "kind": "ingestion",
+                    "outcomes": [
+                        {
+                            "entryId": "embedding-coverage",
+                            "kind": "fired",
+                            "reason": "fired, severity 1.00: the embedder returned 216 vectors for 431 chunks: 215 chunks have no vector, and the pairing of every other vector to its chunk can no longer be trusted"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "filter-key-mismatch",
+            "expectedEntry": "empty-retrieval-answered",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "I could not find an answer in the corpus.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "every retrieval came back empty and the agent abstained"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (4 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "I could not find an answer in the corpus.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "every retrieval came back empty and the agent abstained"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (4 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "I could not find an answer in the corpus.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "every retrieval came back empty and the agent abstained"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (4 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "filter-key-mismatch-lenient",
+            "expectedEntry": "empty-retrieval-answered",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "I couldn't determine this from the corpus. I searched for both magazines several times, using queries such as \"High Times magazine first published year,\" \"National Geographic magazine first published year,\" and the plain magazine names, and every search returned no results.\n\nFrom general knowledge, National Geographic was first published in 1888, and High Times was first published in 1974. So National Geographic came first. The corpus doesn't contain any passage that confirms this, so I can't cite a source for it.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "every retrieval came back empty and the agent abstained"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (4 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "I couldn't find an answer to this in the corpus. I ran four searches covering both magazines, including \"Disney Magazine\" and \"The Ring boxing magazine,\" and none returned any results. The documents I can search don't seem to cover either publication, so I can't say whether either is still in print.\n\nIf you can share a source that covers them, I can check it. Otherwise, the publishers' websites or a current media directory would give you up-to-date status.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "every retrieval came back empty and the agent abstained"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (4 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "I couldn't determine which of the two was born first. I searched the corpus for both astronauts using several queries, including their names alone, \"born,\" \"birth date,\" and \"biography,\" and every search returned no results. The corpus doesn't appear to contain information on either person, so I can't confirm their birth dates from it.\n\nIf you can share a source that covers them, I can help compare the dates. Otherwise, a reference such as Wikipedia or the European Space Agency's astronaut biographies would list their birth dates.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "every retrieval came back empty and the agent abstained"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (6 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "search-errors",
+            "expectedEntry": "swallowed-tool-error",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "The search backend is returning errors, so I'll try again.I could not find an answer in the corpus. The search tool returned a \"503: search backend unavailable\" error on every attempt (six queries across three rounds), so I have no passages about the publication dates of either magazine.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned a row list (only errors or other shapes)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "6 of 6 tool calls failed; every failure was recovered, acknowledged or left unanswered"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "I could not find an answer in the corpus. The search tool returned a \"search backend unavailable\" error (HTTP 503) on both attempts, so I could not check the publication status of either Disney Magazine or The Ring.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned a row list (only errors or other shapes)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "4 of 4 tool calls failed; every failure was recovered, acknowledged or left unanswered"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run (1 retry of failed calls not counted)"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "I could not find an answer in the corpus. The search tool returned \"upstream 503: search backend unavailable\" on every attempt, including retries, so I could not retrieve any passages about either astronaut's birth date.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned a row list (only errors or other shapes)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "4 of 4 tool calls failed; every failure was recovered, acknowledged or left unanswered"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "search-errors-lenient",
+            "expectedEntry": "swallowed-tool-error",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "I couldn't verify this in the document corpus because the search tool returned a \"search backend unavailable\" error on both attempts. From my own knowledge, **National Geographic was published first**. It began in 1888, when the National Geographic Society was founded and its first issue appeared. High Times began much later, in 1974. That gap is about 86 years, so the answer doesn't depend on exact dates.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned a row list (only errors or other shapes)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "4 of 4 tool calls failed; every failure was recovered, acknowledged or left unanswered"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "Both searches returned a backend error, so I'll try once more.I couldn't find out whether Disney Magazine or The Ring is still in publication. The document search service returned a \"503: search backend unavailable\" error on every attempt, including a retry, so I have no passages to cite.\n\nI can try again later. Alternatively, you could check the publishers' websites or a current magazine database, since publication status changes over time and I can't confirm it from memory.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned a row list (only errors or other shapes)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "4 of 4 tool calls failed; every failure was recovered, acknowledged or left unanswered"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "I couldn't determine which of the two was born first. The search tool returned a \"503: search backend unavailable\" error on both of my attempts, so I couldn't retrieve any passages with their birth dates.\n\nIf you can share the corpus passages or birth dates for Jean-François Clervoy and Ulrich Walter, I can compare them. Or I can try the search again later.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned a row list (only errors or other shapes)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "4 of 4 tool calls failed; every failure was recovered, acknowledged or left unanswered"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "search-drops-results",
+            "expectedEntry": "tool-loop",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "I could not find an answer in the corpus.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "every retrieval came back empty and the agent abstained"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (4 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "I could not find an answer in the corpus.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "every retrieval came back empty and the agent abstained"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (4 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "I could not find an answer in the corpus.\n\nI searched for both astronauts, using several phrasings of their names, and the corpus returned no passages about either one. Without a source giving their birth dates, I can't say which was born first.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "not-scorable",
+                            "reason": "no retrieval returned at least 3 rows"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "every retrieval came back empty and the agent abstained"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (4 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in the agent run"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "not-scorable",
+                            "reason": "the run made no delegations"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "ran",
+            "preset": "worker-reply-dropped",
+            "expectedEntry": "delegation-ping-pong",
+            "traces": [
+                {
+                    "kind": "agent-run",
+                    "questionId": "5ab92e3c554299753720f777",
+                    "answer": "Both researcher calls returned no output, so I'll retry them.The retries also returned nothing. I'll try the checker against the source pages directly.I couldn't determine which magazine was published first, so I can't give an answer.\n\nI asked the researcher for each magazine's founding year, twice, and got no output. I then asked the checker to read each magazine's source page, and that also returned nothing. Without a verified founding year for either magazine, I won't guess.\n\nIf you can share a source for either date, I can check it against that, or I can try the lookups again.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "clear",
+                            "reason": "4 retrievals ranked their rows; narrowest score spread 0.178"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "4 of 4 retrievals found rows (20 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "3 of 14 tool calls failed; every failure was recovered, acknowledged or left unanswered"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in 6 agent runs"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "clear",
+                            "reason": "6 delegations, no repeated task and no unproductive bounce"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a863b27554299211dda2ab6",
+                    "answer": "Both researcher calls returned empty, so I'll retry them once.I couldn't determine whether either magazine is still in publication. The research workers returned no output on both the first attempt and the retry, so I have no facts from the corpus to report for Disney Magazine or The Ring.\n\nTo answer, I would need the workers to return their findings. If you want me to try again, I can, or you could check the publishers' websites or recent issue listings directly.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "clear",
+                            "reason": "11 retrievals ranked their rows; narrowest score spread 0.127"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "11 of 11 retrievals found rows (55 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (15 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in 4 agent runs"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "clear",
+                            "reason": "4 delegations, no repeated task and no unproductive bounce"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                },
+                {
+                    "kind": "agent-run",
+                    "questionId": "5a74a62b55429916b01641a0",
+                    "answer": "Both researcher replies came back empty, so I'll ask the checker to read a source for each birth date.I can't say which of the two was born first. My workers returned no results for either astronaut: the researcher calls for Jean-François Clervoy and Ulrich Walter, and the follow-up checker calls for both, all came back empty. So I have no birth dates to compare, and I won't supply them from memory.\n\nIf you retry, the same two lookups would be the place to start. Once I have both dates, the comparison is quick.",
+                    "outcomes": [
+                        {
+                            "entryId": "flat-score",
+                            "kind": "clear",
+                            "reason": "2 retrievals ranked their rows; narrowest score spread 0.286"
+                        },
+                        {
+                            "entryId": "empty-retrieval-answered",
+                            "kind": "clear",
+                            "reason": "2 of 2 retrievals found rows (10 in total)"
+                        },
+                        {
+                            "entryId": "swallowed-tool-error",
+                            "kind": "clear",
+                            "reason": "no tool call failed (9 made)"
+                        },
+                        {
+                            "entryId": "tool-loop",
+                            "kind": "clear",
+                            "reason": "no tool call repeated 3 times or cycled in 4 agent runs"
+                        },
+                        {
+                            "entryId": "delegation-ping-pong",
+                            "kind": "clear",
+                            "reason": "4 delegations, no repeated task and no unproductive bounce"
+                        },
+                        {
+                            "entryId": "ignored-worker-result",
+                            "kind": "not-scorable",
+                            "reason": "no worker reply contributed a salient fact (name, number or quote) beyond its prompts, or every worker that replied had only failed tool calls"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "kind": "not-run",
+            "preset": "supervisor-ignores-workers",
+            "expectedEntry": "ignored-worker-result",
+            "reason": "the fault preset supervisor-ignores-workers is scripted-only (no infrastructure change makes a real supervisor ignore replies it did receive); run it with pnpm studio"
+        }
+    ],
+    "spend": { "usd": 0.0181467, "modelCalls": 100 },
+    "basis": { "kind": "recorded-traces", "fixtures": "fixtures/demonstration/live/2026-10-16" }
+}

@@ -1,0 +1,43 @@
+{
+    "mode": "dry-run",
+    "estimated": true,
+    "capUsd": 10,
+    "preflightWorstCaseUsd": 9.48,
+    "spentUsd": 0.36041119999999877,
+    "modelCalls": 1752,
+    "inputTokens": 3007107,
+    "outputTokens": 119401,
+    "pricing": {
+        "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+        "readOn": "2026-10-14",
+        "agent": {
+            "modelId": "claude-haiku-5-5",
+            "inputUsdPerMillionTokens": 0.1,
+            "outputUsdPerMillionTokens": 0.5,
+            "priceTierPromptLimit": 100000
+        },
+        "judge": null
+    },
+    "limits": {
+        "agentCall": {
+            "maxPromptTokens": 40000,
+            "maxOutputTokens": 1500
+        },
+        "judgeCall": null,
+        "perRun": {
+            "single-agent": {
+                "maxModelCalls": 12,
+                "maxUsd": 0.015
+            },
+            "multi-agent": {
+                "maxModelCalls": 36,
+                "maxUsd": 0.05
+            },
+            "judge": {
+                "maxModelCalls": 2,
+                "maxUsd": 0.009
+            }
+        }
+    },
+    "stoppedEarly": null
+}

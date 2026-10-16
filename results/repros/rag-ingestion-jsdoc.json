@@ -1,0 +1,33 @@
+{
+    "reproductionId": "rag-ingestion-jsdoc",
+    "outcome": "reproduces",
+    "summary": "JSDoc example has 4 type errors; its chunk call threw: Invalid parameters for recursive strategy: 'observabilityContext' not supported; its upsert call is accepted and emits 0 vector-operation spans",
+    "source": "scripted",
+    "platform": "darwin 25.6.0 arm64, Node v24.22.0",
+    "generatedOn": "2026-10-15",
+    "versions": {
+        "@mastra/core": "1.77.0",
+        "@mastra/evals": "1.10.7",
+        "@mastra/fastembed": "1.3.3",
+        "@mastra/libsql": "1.26.1",
+        "@mastra/memory": "1.37.1",
+        "@mastra/observability": "1.20.0",
+        "@mastra/rag": "2.6.7",
+        "ai": "7.0.140"
+    },
+    "evidence": {
+        "jsDocExampleTypeErrors": [
+            "fixture line 21: TS2353 Object literal may only specify known properties, and 'observabilityContext' does not exist in type 'ChunkParams'.",
+            "fixture line 22: TS2339 Property 'embeddings' does not exist on type 'EmbedResult'.",
+            "fixture line 22: TS2554 Expected 1 arguments, but got 2.",
+            "fixture line 26: TS2353 Object literal may only specify known properties, and 'observabilityContext' does not exist in type 'UpsertVectorParams<VectorFilter>'."
+        ],
+        "documentedChunkCall": "threw: Invalid parameters for recursive strategy: 'observabilityContext' not supported",
+        "documentedUpsert": {
+            "ingestion": { "chunkCount": 7, "vectorCount": 7 },
+            "chunkSpansInTrace": 1,
+            "embeddingSpansInTrace": 0,
+            "vectorOperationSpansInTrace": 0
+        }
+    }
+}

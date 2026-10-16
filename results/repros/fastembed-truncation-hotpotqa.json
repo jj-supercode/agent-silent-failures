@@ -1,0 +1,66 @@
+{
+    "reproductionId": "fastembed-truncation-hotpotqa",
+    "outcome": "reproduces",
+    "summary": "question-level documents: 58/77 default chunks exceed the 512-token window (27.80% of tokens never embedded); per-paragraph documents: 0/386",
+    "source": "scripted",
+    "platform": "darwin 25.6.0 arm64, Node v24.22.0",
+    "generatedOn": "2026-10-15",
+    "versions": {
+        "@mastra/core": "1.77.0",
+        "@mastra/evals": "1.10.7",
+        "@mastra/fastembed": "1.3.3",
+        "@mastra/libsql": "1.26.1",
+        "@mastra/memory": "1.37.1",
+        "@mastra/observability": "1.20.0",
+        "@mastra/rag": "2.6.7",
+        "ai": "7.0.140"
+    },
+    "evidence": {
+        "corpus": "HotpotQA distractor dev subsample committed under data/hotpotqa (CC BY-SA 4.0)",
+        "chunking": "MDocument.fromText(document).chunk() with no options (recursive, maxSize 4000, overlap 200)",
+        "questionLevel": {
+            "documents": 40,
+            "documentCharacters": {
+                "count": 40,
+                "min": 781,
+                "median": 6083,
+                "p90": 7722,
+                "max": 9922,
+                "mean": 5579.025
+            },
+            "defaultChunks": {
+                "chunkCount": 77,
+                "overflowingCount": 58,
+                "overflowingShare": 0.7532,
+                "bgeContentTokens": { "count": 77, "min": 40, "median": 701, "p90": 861, "max": 936, "mean": 632.5714 },
+                "tokensBeyondWindowShare": 0.278
+            }
+        },
+        "paragraphLevel": {
+            "documents": 386,
+            "documentCharacters": {
+                "count": 386,
+                "min": 58,
+                "median": 491,
+                "p90": 1021,
+                "max": 2366,
+                "mean": 555.1658
+            },
+            "defaultChunks": {
+                "chunkCount": 386,
+                "overflowingCount": 0,
+                "overflowingShare": 0,
+                "bgeContentTokens": {
+                    "count": 386,
+                    "min": 16,
+                    "median": 108,
+                    "p90": 226,
+                    "max": 457,
+                    "mean": 121.5492
+                },
+                "tokensBeyondWindowShare": 0
+            }
+        },
+        "lengthBoundary": { "shortestDocumentWithAnOverflowingChunk": 3326, "longestDocumentWithoutOverflow": 2366 }
+    }
+}

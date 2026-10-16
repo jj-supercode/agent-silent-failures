@@ -1,0 +1,26 @@
+{
+    "source": {
+        "name": "hotpotqa/hotpot_qa",
+        "config": "distractor",
+        "split": "validation",
+        "revision": "1908d6afbbead072334abe2965f91bd2709910ab",
+        "file": "distractor/validation-00000-of-00001.parquet",
+        "url": "https://huggingface.co/datasets/hotpotqa/hotpot_qa/resolve/1908d6afbbead072334abe2965f91bd2709910ab/distractor/validation-00000-of-00001.parquet",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+        "rows": 7405
+    },
+    "sampling": {
+        "method": "rank rows by sha256(seed:id), take greedily per type, skip rows whose gold titles are already used",
+        "seed": "agent-silent-failures/hotpotqa/v1",
+        "perType": {
+            "bridge": 20,
+            "comparison": 20
+        }
+    },
+    "output": {
+        "file": "questions.jsonl",
+        "questions": 40,
+        "sha256": "41d4dd065e68eb7b416c1592b9ec43482849f59a22eca20b4192e48285185a81"
+    }
+}

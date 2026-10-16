@@ -1,0 +1,104 @@
+{
+    "name": "agent-silent-failures",
+    "version": "0.1.0",
+    "description": "A measured, executable catalog of silent agent failures, shipped as code-only Mastra scorers.",
+    "license": "MIT",
+    "author": "Aleksi Heinonen",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jj-supercode/agent-silent-failures.git"
+    },
+    "homepage": "https://github.com/jj-supercode/agent-silent-failures#readme",
+    "bugs": {
+        "url": "https://github.com/jj-supercode/agent-silent-failures/issues"
+    },
+    "type": "module",
+    "packageManager": "pnpm@12.11.2",
+    "engines": {
+        "node": ">=24.22.0"
+    },
+    "files": [
+        "dist"
+    ],
+    "sideEffects": false,
+    "publishConfig": {
+        "access": "public",
+        "provenance": true
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/entries/index.d.ts",
+            "default": "./dist/entries/index.js"
+        },
+        "./trace": {
+            "types": "./dist/trace/index.d.ts",
+            "default": "./dist/trace/index.js"
+        },
+        "./trace/model": {
+            "types": "./dist/trace/model.d.ts",
+            "default": "./dist/trace/model.js"
+        },
+        "./ingestion": {
+            "types": "./dist/ingestion/index.d.ts",
+            "default": "./dist/ingestion/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "scripts": {
+        "typecheck": "tsc --noEmit",
+        "typecheck:watch": "tsc --noEmit --watch",
+        "lint": "eslint --max-warnings 0 .",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "test": "vitest run",
+        "test:integration": "vitest run --config vitest.integration.config.ts",
+        "build": "rm -rf dist && tsc -p tsconfig.build.json",
+        "check:package": "pnpm build && publint --strict && attw --pack . --profile esm-only && node scripts/check-package-install.ts",
+        "check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test && pnpm test:integration && pnpm check:package",
+        "bed": "node src/bed/cli/main.ts",
+        "demo": "node src/demo/main.ts",
+        "demo:live": "node src/live/main.ts",
+        "replay": "node src/replay/main.ts",
+        "studio": "MASTRA_SKIP_DOTENV=1 MASTRA_TELEMETRY_DISABLED=1 node src/studio/cli/main.ts mastra dev --dir src/mastra",
+        "studio:live": "node src/live/studio/preflight.ts && MASTRA_SKIP_DOTENV=1 MASTRA_TELEMETRY_DISABLED=1 node src/studio/cli/main.ts --live mastra dev --dir src/mastra-live",
+        "demonstration": "node scripts/demonstration/main.ts",
+        "demonstration:live": "node scripts/demonstration/live.ts",
+        "data:sample": "node scripts/sample-hotpotqa.ts",
+        "model:download": "node scripts/download-embedding-model.ts",
+        "repros": "node repros/run-all.ts",
+        "docs:tables": "node scripts/docs-tables/main.ts",
+        "docs:charts": "node scripts/docs-charts/main.ts"
+    },
+    "peerDependencies": {
+        "@mastra/core": ">=1.77.0 <2.0.0",
+        "zod": ">=4.6.7 <5.0.0"
+    },
+    "devDependencies": {
+        "@ai-sdk/anthropic": "4.0.79",
+        "@ai-sdk/provider": "4.0.27",
+        "@anush008/tokenizers": "0.6.0",
+        "@arethetypeswrong/cli": "0.18.5",
+        "@eslint/js": "10.0.1",
+        "@mastra/core": "1.77.0",
+        "@mastra/evals": "1.10.7",
+        "@mastra/fastembed": "1.3.3",
+        "@mastra/libsql": "1.26.1",
+        "@mastra/memory": "1.37.1",
+        "@mastra/observability": "1.20.0",
+        "@mastra/rag": "2.6.7",
+        "@types/node": "24.19.2",
+        "@typescript/native": "npm:typescript@7.0.2",
+        "ai": "7.0.140",
+        "eslint": "10.12.0",
+        "eslint-config-prettier": "10.1.8",
+        "hyparquet": "1.31.4",
+        "mastra": "1.34.1",
+        "prettier": "3.9.10",
+        "publint": "0.3.25",
+        "typescript": "npm:@typescript/typescript6@6.0.2",
+        "typescript-eslint": "8.71.2",
+        "vitest": "5.0.4",
+        "yaml": "2.9.1",
+        "zod": "4.6.7"
+    }
+}

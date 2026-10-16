@@ -1,0 +1,68 @@
+name: New entry proposal
+description: Propose a silent failure for the catalog that you can reproduce.
+title: '[entry] '
+labels: ['entry-proposal']
+body:
+    - type: markdown
+      attributes:
+          value: |
+              A catalog entry is a failure whose output looks fine while no error is raised. It needs a reproduction
+              on the offline harness, a detector over a stored trace, and a clean run that tempts that detector.
+              See CONTRIBUTING.md, "Add an entry in an afternoon".
+    - type: input
+      id: name
+      attributes:
+          label: Proposed entry id
+          description: Short kebab case naming the failure, not the fix.
+          placeholder: stale-cache-answer
+      validations:
+          required: true
+    - type: textarea
+      id: symptom
+      attributes:
+          label: Symptom
+          description: What a user or an operator sees, and why it looks fine.
+      validations:
+          required: true
+    - type: textarea
+      id: silence
+      attributes:
+          label: Why no error is raised
+          description: Which component swallows the problem.
+      validations:
+          required: true
+    - type: textarea
+      id: signature
+      attributes:
+          label: Trace signature
+          description: Which spans and fields show it in a stored Mastra trace (tool_call input and output, agent_run output, rag_ingestion output).
+      validations:
+          required: true
+    - type: textarea
+      id: reproduction
+      attributes:
+          label: Reproduction
+          description: How a fault on the offline harness would produce it (embedder, retriever, tool output or model policy), with at least two severities.
+      validations:
+          required: true
+    - type: textarea
+      id: hard-negative
+      attributes:
+          label: Hard negative
+          description: A correct run that looks similar and must stay clear.
+      validations:
+          required: true
+    - type: textarea
+      id: prior-art
+      attributes:
+          label: Prior art
+          description: Where this failure or its signal was described or detected before, with links.
+    - type: checkboxes
+      id: checks
+      attributes:
+          label: Checks
+          options:
+              - label: I searched existing entries and issues for this failure.
+                required: true
+              - label: The example traces I share contain no secrets or personal data.
+                required: true
