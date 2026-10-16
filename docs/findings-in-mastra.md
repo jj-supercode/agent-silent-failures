@@ -124,6 +124,21 @@ so a missing or NaN score reads as a real score of 0. A related support thread (
 resolve) shows users meeting the empty result. Suggested fix: rethrow store errors (or return a typed error
 result the agent can see), and keep a missing score missing.
 
+### 8. Forbidden sequences and retry limits miss violations on trace-derived trajectories
+
+**Status:** not yet reported. **Repro:** `pnpm repros trajectory-checks-on-trace`.
+
+The same trace shape as finding 4, in two neighbouring checks that `createTrajectoryScorerCode` combines with it.
+`checkTrajectoryBlacklist` matches `blacklistedSequences` against adjacent names in each sibling list
+(`packages/evals/src/scorers/utils.ts`, `@mastra/evals` 1.10.7), so the `processor_run` steps between two tool calls
+in a trace hide every forbidden sequence; a violation scores the whole trajectory 0, so this is the check users rely
+on as a hard gate. `analyzeToolFailures` collects tool calls from the top-level steps only, while a trace nests every
+tool call under `model_generation`, so `maxRetriesPerTool` sees no tool calls and finds no retries. Both checks
+catch the violation on the message trajectory of the same run. Since `runEvals` reads the trace once it is stored
+(#27237, fixed in #27271), both reach `runEvals` users by default. Suggested fix: skip non-tool steps when matching
+sequences, as #27316 does for redundant calls, and collect tool calls from the whole trajectory for the retry
+analysis.
+
 ## Checked, not bugs
 
 These looked like silent failures and are not. They are listed so nobody has to check them again.
@@ -161,6 +176,7 @@ These looked like silent failures and are not. They are listed so nobody has to 
 | [`request-context-on-spans`](../repros/request-context-on-spans/repro.ts)                               | reproduces  | 4/21 stored spans carry the RequestContext; keys stored verbatim despite the default sensitive-data filter: customerEmail, tenantDatabaseUrl                                                                                                                                                                | darwin 25.6.0 arm64, Node v24.22.0, 2026-10-15 |
 | [`run-evals-trace-fallback`](../repros/run-evals-trace-fallback/repro.ts)                               | reproduces  | default exporter: runEvals used the message-fallback trajectory although the trace exists once flushed; with strategy 'realtime' it used the trace trajectory; LibSQLStore with the default exporter: message-fallback                                                                                      | darwin 25.6.0 arm64, Node v24.22.0, 2026-10-15 |
 | [`tool-output-validation-result`](../repros/tool-output-validation-result/repro.ts)                     | reproduces  | tool output failing outputSchema reached the model as a tool result; generate() returned text "The document scored well." and 1 console lines                                                                                                                                                               | darwin 25.6.0 arm64, Node v24.22.0, 2026-10-15 |
+| [`trajectory-checks-on-trace`](../repros/trajectory-checks-on-trace/repro.ts)                           | reproduces  | blacklistedSequences [searchCorpus, lookupSource]: score 0 on the message trajectory, 1 on the trace trajectory of the same run; a retry after a failed flakySearch call with maxRetriesPerTool 0: 1 retry found on the message trajectory, 0 on the trace trajectory                                       | darwin 25.6.0 arm64, Node v24.22.0, 2026-10-16 |
 | [`trajectory-scorer-trace-crash`](../repros/trajectory-scorer-trace-crash/repro.ts)                     | reproduces  | type 'trajectory' scorer under trace scoring: Scorer Run Failed: Cannot read properties of undefined (reading 'map'); the same scorer on extractTrajectoryFromTrace(spans) scores 1                                                                                                                         | darwin 25.6.0 arm64, Node v24.22.0, 2026-10-15 |
 | [`upsert-length-check`](../repros/upsert-length-check/repro.ts)                                         | reproduces  | an embedder returning 3 vectors for 4 inputs: embedMany threw AI_InvalidResponseDataError; the documented upsert (metadata from chunks) threw MASTRA_VECTOR_LIBSQL_UPSERT_FAILED caused by MASTRA_VECTOR_LIBSQL_UPSERT_METADATA_LENGTH_MISMATCH; only a positional zip (metadata from the vectors) resolved | darwin 25.6.0 arm64, Node v24.22.0, 2026-10-15 |
 | [`vector-query-tool-swallows-store-errors`](../repros/vector-query-tool-swallows-store-errors/repro.ts) | reproduces  | querying a missing index returned 0 sources with no error on the tool_call span (error only on the nested rag_vector_operation span); NaN scores came back as 0, 0                                                                                                                                          | darwin 25.6.0 arm64, Node v24.22.0, 2026-10-15 |

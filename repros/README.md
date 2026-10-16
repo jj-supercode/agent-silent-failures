@@ -29,6 +29,7 @@ Exit codes of each script:
 | `agent-scorer-loses-tool-calls`           | `type: 'agent'` scorers see no tool calls under trace scoring                |
 | `run-evals-trace-fallback`                | `runEvals` uses the message trajectory although storage is configured        |
 | `redundant-calls-on-trace`                | the redundant-call check misses consecutive repeats on trace trajectories    |
+| `trajectory-checks-on-trace`              | forbidden sequences and retry limits miss violations on trace trajectories   |
 | `trajectory-scorer-trace-crash`           | `type: 'trajectory'` scorers throw under trace scoring                       |
 | `early-trace-scoring`                     | scoring a trace before it is stored writes nothing and prints nothing        |
 | `vector-query-tool-swallows-store-errors` | `createVectorQueryTool` returns an empty result on a store error; NaN to 0   |
